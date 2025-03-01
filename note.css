@@ -1,0 +1,23 @@
+.body{
+    width: 100%;
+    
+    background-image: url('imgs/bookbg.jpg'); /* 设置背景图片 */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; /* 使图片居中显示 */
+  }
+.board{
+width:60%;
+/* background-color: #fff; */
+margin: auto;
+}
+h4{
+    text-align: center;
+}
+h2{
+ text-align: center;
+
+}
+p{
+  font-size: 16px
+}

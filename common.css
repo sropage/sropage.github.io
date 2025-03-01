@@ -1,0 +1,42 @@
+.header{
+  width:100%;
+  height:12%;
+}
+.maptitle{
+  width:37%;
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background-color:#9A99FF;
+  float:left;
+}
+h1{
+  color:white;
+}
+.mapbut{
+  width:9%;
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background-color:#9A99FF;
+  float:left;
+}
+.mapbutp{
+  text-align:center;
+  vertical-align:center;
+  color:white;
+}
+.body{
+  width:100%;
+}
+.foot{
+  background-color:grey;
+  width:100%;
+}
+.footword{
+  font-size:15px;
+  text-align: center;
+  color:white;
+}
