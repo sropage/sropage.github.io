@@ -1,0 +1,111 @@
+<html>
+<head>
+  <title>SRO官方网站</title>
+  <link rel="stylesheet" href="../common.css" type="text/css" media="all" />
+</head>
+<body>
+  <div class="header">
+    <div class="maptitle">
+      <h1>SRO官方网站</h1>
+    </div>
+    <div class="mapbuts">
+      <a href="../index.html" class="mapbut"><p class="mapbutp">首页</p></a>
+      <a href="../notice.html" class="mapbut"><p class="mapbutp">公告栏</p></a>
+      <a href="../topkit.html" class="mapbut"><p class="mapbutp">TopKit</p></a>
+      <div class="dropdown mapbut">
+        <div class="dropdown-toggle"><p class="mapbutp">黎民黎明学会</p></div>
+        <div class="dropdown-content">
+          <a href="../topkit.html">TopKit</a>
+          <a href="../server.html">MC服务器</a>
+          <a href="../qq.html">QQ群</a>
+          <a href="../join.html">申请加入</a>
+        </div>
+      </div>
+      <div class="dropdown mapbut">
+        <div class="dropdown-toggle"><p class="mapbutp">宣传组织部</p></div>
+        <div class="dropdown-content">
+          <a href="../law.html">《SRO章程》</a>
+          <a href="../history.html">简史</a>
+          <a href="../lib.html">藏书阁</a>
+          
+          <a href="../readme.html">声明</a>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // 点击触发下拉菜单
+        const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+        
+        dropdownToggles.forEach(toggle => {
+          toggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const dropdown = this.closest('.dropdown');
+            const isActive = dropdown.classList.contains('active');
+            
+            // 关闭所有其他下拉菜单
+            document.querySelectorAll('.dropdown').forEach(d => {
+              if (d !== dropdown) d.classList.remove('active');
+            });
+            
+            // 切换当前下拉菜单
+            dropdown.classList.toggle('active', !isActive);
+          });
+        });
+        
+        // 点击页面其他位置关闭下拉菜单
+        document.addEventListener('click', function() {
+          document.querySelectorAll('.dropdown').forEach(d => {
+            d.classList.remove('active');
+          });
+        });
+      });
+      </script>
+
+  </div>
+  <div class="body">
+    <h2>《沁春园·南海》</h2>
+    <h3>北斗寒星，千里石塘，万里长沙。</h3>
+    <h3>望茫茫南海，千层雪浪，迭起兴衰，此消彼长。</h3>
+    <h3>西沙南沙，星罗棋布，万里海疆任我闯。</h3>
+    <h3>九段线，有何人敢闯，必使其亡！</h3>
+    <h3>广州珠江口旁，共和国航母在启航。</h3>
+    <h3>看深海巨龙，踏碎汪洋，威震四方，气吞八荒。</h3>
+    <h3>中华儿女，心怀壮志，守护海疆志如钢。</h3>
+    <h3>待明朝，纵情志，海天同光。</h3>
+    <br><br><br>
+    <h2>《不屑书山》</h2>
+    <h3>书山路歧，大文大理苦抉择。</h3>
+    <h3>朝霞起，暮云收，笔墨横飞意未休。</h3>
+    <h3>虽身在一中，心却驰骋寰宇间。</h3>
+    <h3>笼中鸟，何时飞？徒徒白了少年头。</h3>
+    <h3>抬望眼，一中风光无限好。</h3>
+    <h3>鸿鹄志，放荡不羁爱自由。</h3>
+    <h3>作业如山，我自挥毫泼墨，笑对苦中苦。</h3>
+    <h3>待明日，金榜题名，任我五湖四海游。</h3>
+    <br><br><br>
+    <h2>《春节思边》</h2>
+    <h3>灯笼高挂万家红，家家酒香浓。</h3>
+    <h3>锣鼓喧天辞旧岁，烟火绽云霞。</h3>
+    <h3>岁月静好福星悬，谁知边关冷。</h3>
+    <h3>万里边关寒月冷，边塞战士保。</h3>
+    <br><br><br>
+    <h2>《惜寒岁》</h2>
+    <h3>寒岁匆匆逝如川，梦初残，意难安。</h3>
+    <h3>悲风凛冽，残雪盖孤山。</h3>
+    <h3>独倚危楼思往昔，人独立，影孤单。</h3>
+    <h3>书卷堆叠情未减，志犹在，路漫漫。</h3>
+    <h3>时光易逝，寒假付流年。</h3>
+    <h3>但愿来日重拾笔，破苍茫，试补天。</h3>
+    <h3>呜呼！寒岁虽去，志向长存，老骥伏枥，志在千里。</h3>
+  </div>
+  <div class="foot">
+    <br>
+    <p class="footword">SRO元首&nbsp;版权所有</p>
+    <p class="footword">联系我们</p>
+    <p class="footword">QQ群&nbsp;:&nbsp;1032407123</p>
+    <p class="footword">邮箱&nbsp;:&nbsp;sroclaude@outlook.com</p>
+    <br>
+  </div>
+</body>
+</html>
