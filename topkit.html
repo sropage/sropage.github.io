@@ -1,0 +1,237 @@
+<html>
+<head>
+  <title>SRO官方网站</title>
+  <link rel="stylesheet" href="common.css" type="text/css" media="all" />
+  <style>
+    body {
+        font-family: 'Microsoft YaHei', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+        color: #333;
+    }
+    
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    header {
+        background-color: #12B7F5;
+        color: white;
+        padding: 30px 0;
+        text-align: center;
+        border-radius: 8px 8px 0 0;
+        margin-bottom: 30px;
+    }
+    
+    .app-icon {
+        width: 120px;
+        height: 120px;
+        border-radius: 22%;
+        margin-bottom: 15px;
+        border: 5px solid white;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    h1 {
+        margin: 0;
+        font-size: 2.5em;
+    }
+    
+    .tagline {
+        font-size: 1.2em;
+        margin-top: 10px;
+        opacity: 0.9;
+    }
+    
+    .download-btn {
+        display: inline-block;
+        background-color: #FF9500;
+        color: white;
+        padding: 12px 30px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.2em;
+        margin-top: 20px;
+        transition: background-color 0.3s;
+    }
+    
+    .download-btn:hover {
+        background-color: #E68600;
+    }
+    
+    .features {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 40px 0;
+    }
+    
+    .feature {
+        flex-basis: 30%;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+    }
+    
+    .feature h3 {
+        color: #12B7F5;
+        margin-top: 0;
+    }
+    
+    footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #eee;
+        border-radius: 0 0 8px 8px;
+        margin-top: 30px;
+    }
+    
+    @media (max-width: 768px) {
+        .feature {
+            flex-basis: 100%;
+        }
+    }
+</style>
+</head>
+<body>
+  <div class="header">
+ <div class="maptitle">
+      <h1>SRO官方网站</h1>
+    </div>
+    <div class="mapbuts">
+      <a href="index.html" class="mapbut"><p class="mapbutp">首页</p></a>
+      <a href="notice.html" class="mapbut"><p class="mapbutp">公告栏</p></a>
+      <a href="topkit.html" class="mapbut"><p class="mapbutp">TopKit</p></a>
+      <div class="dropdown mapbut">
+        <div class="dropdown-toggle"><p class="mapbutp">黎民黎明学会</p></div>
+        <div class="dropdown-content">
+          <a href="topkit.html">TopKit</a>
+          <a href="server.html">MC服务器</a>
+          <a href="qq.html">QQ群</a>
+          <a href="join.html">申请加入</a>
+        </div>
+      </div>
+      <div class="dropdown mapbut">
+        <div class="dropdown-toggle"><p class="mapbutp">宣传组织部</p></div>
+        <div class="dropdown-content">
+          <a href="law.html">《SRO章程》</a>
+          <a href="history.html">简史</a>
+          <a href="lib.html">藏书阁</a>
+          
+          <a href="readme.html">声明</a>
+        </div>
+      </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // 点击触发下拉菜单
+  const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+  
+  dropdownToggles.forEach(toggle => {
+    toggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const dropdown = this.closest('.dropdown');
+      const isActive = dropdown.classList.contains('active');
+      
+      // 关闭所有其他下拉菜单
+      document.querySelectorAll('.dropdown').forEach(d => {
+        if (d !== dropdown) d.classList.remove('active');
+      });
+      
+      // 切换当前下拉菜单
+      dropdown.classList.toggle('active', !isActive);
+    });
+  });
+  
+  // 点击页面其他位置关闭下拉菜单
+  document.addEventListener('click', function() {
+    document.querySelectorAll('.dropdown').forEach(d => {
+      d.classList.remove('active');
+    });
+  });
+});
+</script>
+  <div class="body">
+    <div class="container">
+        <header>
+            <img src="1.img" alt="图标还没设计好" class="app-icon">
+            <h1>TopKit</h1>
+            <p class="tagline">SRO成员自己的APP</p>
+            <a href="TopKit.zip" class="download-btn">立即下载（暂时无法下载）</a>
+        </header>
+        
+        <section>
+            <h2>关于TopKit</h2>
+            <p>TopKit是SRO重点开发的项目，具体内容我没想好。</p>
+        </section>
+        
+        <section>
+            <h2>主要功能</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>在线访问SRO官网</h3>
+                    <p>天下可运于掌</p>
+                </div>
+                
+                <div class="feature">
+                    <h3>在线看bilibili</h3>
+                    <p>Why not delete bilibili and use TopKit</p>
+                </div>
+                
+                <div class="feature">
+                    <h3>玩SRO开发的小游戏</h3>
+                    <p>豪丸，癌丸，嗨药丸，泰豪丸了</p>
+                </div>
+                
+                <div class="feature">
+                    <h3>Scloud</h3>
+                    <p>SRO自己的网盘</p>
+                </div>
+                
+                
+                
+                <div class="feature">
+                    <h3>敬请期待</h3>
+                    <p>虽然TopKit的开发进度只有“新建文件夹”</p>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>为什么选择TopKit</h2>
+            <ul>
+                <!-- <li>20余年通讯领域经验，稳定可靠</li>
+                <li>覆盖Windows、macOS、iOS、Android等多平台</li>
+                <li>丰富的社交功能和娱乐体验</li>
+                <li>持续更新优化，带来更好的用户体验</li> -->
+                <li>只因我们太优秀了</li>
+            </ul>
+        </section>
+        
+        <section style="text-align: center; margin: 40px 0;">
+            <a href="2.zip" class="download-btn">开发中，暂时无法下载</a>
+            <p style="margin-top: 15px;">版本: 0.0 | 大小: 0MB </p>
+        </section>
+    
+    
+  </div>
+  <div class="foot">
+    <br>
+    <p class="footword">SRO元首&nbsp;版权所有</p>
+    <p class="footword">联系我们</p>
+    <p class="footword">QQ群&nbsp;:&nbsp;1032407123</p>
+    <p class="footword">邮箱&nbsp;:&nbsp;sroclaude@outlook.com</p>
+    <br>
+  </div>
+</body>
+</html>
+

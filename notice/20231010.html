@@ -1,0 +1,93 @@
+<html>
+<head>
+  <title>SRO官方网站</title>
+  <link rel="stylesheet" href="../common.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="../note.css" type="text/css" media="all" />
+</head>
+<body>
+  <div class="header">
+    <div class="maptitle">
+      <h1>SRO官方网站</h1>
+    </div>
+    <div class="mapbuts">
+      <a href="../index.html" class="mapbut"><p class="mapbutp">首页</p></a>
+      <a href="../notice.html" class="mapbut"><p class="mapbutp">公告栏</p></a>
+      <a href="../topkit.html" class="mapbut"><p class="mapbutp">TopKit</p></a>
+      <div class="dropdown mapbut">
+        <div class="dropdown-toggle"><p class="mapbutp">黎民黎明学会</p></div>
+        <div class="dropdown-content">
+          <a href="../topkit.html">TopKit</a>
+          <a href="../server.html">MC服务器</a>
+          <a href="../qq.html">QQ群</a>
+          <a href="../join.html">申请加入</a>
+        </div>
+      </div>
+      <div class="dropdown mapbut">
+        <div class="dropdown-toggle"><p class="mapbutp">宣传组织部</p></div>
+        <div class="dropdown-content">
+          <a href="../law.html">《SRO章程》</a>
+          <a href="../history.html">简史</a>
+          <a href="../lib.html">藏书阁</a>
+          
+          <a href="../readme.html">声明</a>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // 点击触发下拉菜单
+        const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+        
+        dropdownToggles.forEach(toggle => {
+          toggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const dropdown = this.closest('.dropdown');
+            const isActive = dropdown.classList.contains('active');
+            
+            // 关闭所有其他下拉菜单
+            document.querySelectorAll('.dropdown').forEach(d => {
+              if (d !== dropdown) d.classList.remove('active');
+            });
+            
+            // 切换当前下拉菜单
+            dropdown.classList.toggle('active', !isActive);
+          });
+        });
+        
+        // 点击页面其他位置关闭下拉菜单
+        document.addEventListener('click', function() {
+          document.querySelectorAll('.dropdown').forEach(d => {
+            d.classList.remove('active');
+          });
+        });
+      });
+      </script>
+
+  </div>
+  <div class="body">
+    <div class="board">
+      <br>
+      <h2>元首令</h2>
+      <h2>004号</h2>
+      <h3>元首恩准：</h3>
+      <h3>1.重启行星防御理事会，认命【未解密】，【未解密】，【未解密】，【未解密】，【未解密】。为行星防御理事会成员，赋予其一票否决权。</h3>
+      <h3>2.设旭日、腾龙、旅顺、应天、兴安和辉月六大辖区。</h3>
+      <h3>3.SRO内部任何分裂势力都该死，与分裂势力一起玩火终将引火自焚。</h3>
+      <h3> 4.台海局势紧张，在SRO内部宣传台独，朕必严惩不贷。</h3>
+      <h3>Claude</h3>
+      <h3>2023年10月10日</h3>
+      <br><br><br><br><br>
+      <a href="../notice.html">返回</a>
+    </div>
+    
+  </div>
+  <div class="foot">
+    <br>
+    <p class="footword">SRO元首&nbsp;版权所有</p>
+    <p class="footword">联系我们</p>
+    <p class="footword">QQ群&nbsp;:&nbsp;1032407123</p>
+    <p class="footword">邮箱&nbsp;:&nbsp;sroclaude@outlook.com</p>
+    <br>
+  </div>
+</body>
+</html>

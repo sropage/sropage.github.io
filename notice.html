@@ -1,0 +1,137 @@
+<html>
+<head>
+  <title>SRO官方网站</title>
+  <link rel="stylesheet" href="common.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="note.css" type="text/css" media="all" />
+  <style>
+    .nothis{
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+ <div class="maptitle">
+      <h1>SRO官方网站</h1>
+    </div>
+    <div class="mapbuts">
+      <a href="index.html" class="mapbut"><p class="mapbutp">首页</p></a>
+      <a href="notice.html" class="mapbut"><p class="mapbutp">公告栏</p></a>
+      <a href="topkit.html" class="mapbut"><p class="mapbutp">TopKit</p></a>
+      <div class="dropdown mapbut">
+        <div class="dropdown-toggle"><p class="mapbutp">黎民黎明学会</p></div>
+        <div class="dropdown-content">
+          <a href="topkit.html">TopKit</a>
+          <a href="server.html">MC服务器</a>
+          <a href="qq.html">QQ群</a>
+          <a href="join.html">申请加入</a>
+        </div>
+      </div>
+      <div class="dropdown mapbut">
+        <div class="dropdown-toggle"><p class="mapbutp">宣传组织部</p></div>
+        <div class="dropdown-content">
+          <a href="law.html">《SRO章程》</a>
+          <a href="history.html">简史</a>
+          <a href="lib.html">藏书阁</a>
+          
+          <a href="readme.html">声明</a>
+        </div>
+      </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // 点击触发下拉菜单
+  const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+  
+  dropdownToggles.forEach(toggle => {
+    toggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const dropdown = this.closest('.dropdown');
+      const isActive = dropdown.classList.contains('active');
+      
+      // 关闭所有其他下拉菜单
+      document.querySelectorAll('.dropdown').forEach(d => {
+        if (d !== dropdown) d.classList.remove('active');
+      });
+      
+      // 切换当前下拉菜单
+      dropdown.classList.toggle('active', !isActive);
+    });
+  });
+  
+  // 点击页面其他位置关闭下拉菜单
+  document.addEventListener('click', function() {
+    document.querySelectorAll('.dropdown').forEach(d => {
+      d.classList.remove('active');
+    });
+  });
+});
+</script>
+  <div class="body">
+    <div class="board">
+      <br>
+      <h3 class="nothis">--------------------坎坷而希冀的现代史--------------------</h3>
+      <a href="notice/20250327.html"><h4>我们拒绝签字(2025.03.27)</h4></a>
+      <a href="notice/20250326.html"><h4>铁三角四大(2025.03.26)</h4></a>
+      <a href="notice/20250320.html"><h4>元首认为SRO转型迫在眉睫(2025.03.20)</h4></a>
+      <a href="notice/20250307.html"><h4>和大牛逼帝国建交(2025.03.07)</h4></a>
+      <a href="notice/20250303.html"><h4>元首处理SRC事件(2025.03.03)</h4></a>
+      <a href="notice/20250223.html"><h4>平定SRC叛乱(2025.02.23)</h4></a>
+      <a href="notice/20250218.html"><h4>铁三角三大(2025.02.18)</h4></a>
+      <a href="notice/20250214.html"><h4>铁三角二大(2025.02.14)</h4></a>
+      <a href="notice/20250205.html"><h4>元首批准实施《SRO章程》(2025.02.05)</h4></a>
+      <a href="notice/2025012102.html"><h4>铁三角一大(2025.01.21)</h4></a>
+      <a href="notice/20250121.html"><h4>乙巳改新(2025.01.21)</h4></a>
+      <h3 class="nothis">--------------------平淡而短暂的近代史--------------------</h3>
+      <a href="notice/20241225.html"><h4>圣诞节决议(2024.12.25)</h4></a>
+      <a href="notice/t12.html"><h4>祝我生日快乐</h4></a>
+      <a href="notice/t11.html"><h4>元首发表在东明一中发展重要讲话</h4></a>
+      <a href="notice/20241017.html"><h4>改旗易帜(2024.10.17)</h4></a>
+      <a href="notice/t10.html"><h4>元首庆祝自己通关圣安地列斯</h4></a>
+      <a href="notice/20240806.html"><h4>希儿行动(2024.08.06)</h4></a>
+      <a href="notice/20240615.html"><h4>第二帝国成立(2024.06.15)</h4></a>
+      <h3 class="nothis">--------------------传奇而沧桑的古代史--------------------</h3>
+      <a href="notice/20240613.html"><h4>第一帝国解体(2024.06.13)</h4></a>
+      <a href="notice/20240611.html"><h4>行星防御理事会009号决议(2024.06.11)</h4></a>
+      <a href="notice/20240605.html"><h4>红警高玩(2024.06.05)</h4></a>
+      <a href="notice/t9.html"><h4>甲子盛世</h4></a>
+      <a href="notice/20240530.html"><h4>行星防御理事会008号决议(2024.05.30)</h4></a>
+      <a href="notice/20240508.html"><h4>行星防御理事会007号决议(2024.05.08)</h4></a>
+      <a href="notice/20240418.html"><h4>全民运动决议(2024.04.18)</h4></a>
+      <a href="notice/20240101.html"><h4>向陆圈一中宣战(2024.01.01)</h4></a>
+      <a href="notice/20231229.html"><h4>行星防御理事会006号决议(2023.12.29)</h4></a>
+      <a href="notice/t8.html"><h4>元首为南京大屠杀遇难者默哀</h4></a>
+      <a href="notice/20231123.html"><h4>行星防御理事会005号决议(2023.11.23)</h4></a>
+      <a href="notice/t7.html"><h4>元首就巴以冲突发表讲话</h4></a>
+      <a href="notice/20231011.html"><h4>行星防御理事会004号决议(2023.10.11)</h4></a>
+      <a href="notice/20231010.html"><h4>涅槃重生决议(2023.10.10)</h4></a>
+      <a href="notice/t6.html"><h4>元首发表国庆贺词</h4></a>
+      <a href="notice/t5.html"><h4>元首就重新分班发表重要讲话</h4></a>
+      <a href="notice/t4.html"><h4>放假喽</h4></a>
+      <a href="notice/t3.html"><h4>升旗台演说</h4></a>
+      <a href="notice/2023062302.html"><h4>元首称帝(2023.06.23)</h4></a>
+      <a href="notice/20230623.html"><h4>行星防御理事会003号决议(2023.06.23)</h4></a>
+      <a href="notice/t2.html"><h4>元首发表民主共和宣讲</h4></a>
+      <a href="notice/20230620.html"><h4>行星防御理事会002号决议(2023.06.20)</h4></a>
+      <a href="notice/2023061502.html"><h4>行星防御理事会001号决议(2023.06.15)</h4></a>
+      <a href="notice/20230615.html"><h4>元首宣布行星防御理事会成立(2023.06.15)</h4></a>
+      <a href="notice/2023061302.html"><h4>《SRO大宪章》发表(2023.06.13)</h4></a>
+      <a href="notice/t1.html"><h4>元首就消灭学校暴政发布重要讲话</h4></a>
+      <a href="notice/20230613.html"><h4>SRO正式成立(2023.06.13)</h4></a>
+      <br>
+     
+    </div>
+    
+  </div>
+  <div class="foot">
+    <br>
+    <p class="footword">SRO元首&nbsp;版权所有</p>
+    <p class="footword">联系我们</p>
+    <p class="footword">QQ群&nbsp;:&nbsp;1032407123</p>
+    <p class="footword">邮箱&nbsp;:&nbsp;sroclaude@outlook.com</p>
+    <br>
+  </div>
+</body>
+</html>

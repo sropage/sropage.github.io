@@ -1,0 +1,121 @@
+<html>
+<head>
+  <title>SRO官方网站</title>
+  <link rel="stylesheet" href="common.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="note.css" type="text/css" media="all" />
+</head>
+<body>
+  <div class="header">
+ <div class="maptitle">
+      <h1>SRO官方网站</h1>
+    </div>
+    <div class="mapbuts">
+      <a href="index.html" class="mapbut"><p class="mapbutp">首页</p></a>
+      <a href="notice.html" class="mapbut"><p class="mapbutp">公告栏</p></a>
+      <a href="topkit.html" class="mapbut"><p class="mapbutp">TopKit</p></a>
+      <div class="dropdown mapbut">
+        <div class="dropdown-toggle"><p class="mapbutp">黎民黎明学会</p></div>
+        <div class="dropdown-content">
+          <a href="topkit.html">TopKit</a>
+          <a href="server.html">MC服务器</a>
+          <a href="qq.html">QQ群</a>
+          <a href="join.html">申请加入</a>
+        </div>
+      </div>
+      <div class="dropdown mapbut">
+        <div class="dropdown-toggle"><p class="mapbutp">宣传组织部</p></div>
+        <div class="dropdown-content">
+          <a href="law.html">《SRO章程》</a>
+          <a href="history.html">简史</a>
+          <a href="lib.html">藏书阁</a>
+          
+          <a href="readme.html">声明</a>
+        </div>
+      </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // 点击触发下拉菜单
+  const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+  
+  dropdownToggles.forEach(toggle => {
+    toggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const dropdown = this.closest('.dropdown');
+      const isActive = dropdown.classList.contains('active');
+      
+      // 关闭所有其他下拉菜单
+      document.querySelectorAll('.dropdown').forEach(d => {
+        if (d !== dropdown) d.classList.remove('active');
+      });
+      
+      // 切换当前下拉菜单
+      dropdown.classList.toggle('active', !isActive);
+    });
+  });
+  
+  // 点击页面其他位置关闭下拉菜单
+  document.addEventListener('click', function() {
+    document.querySelectorAll('.dropdown').forEach(d => {
+      d.classList.remove('active');
+    });
+  });
+});
+</script>
+  <div class="body">
+    <div class="board">
+      <br>
+      <h2>《SRO章程》</h2>
+<h3>【序言】</h3>
+<h3>SRO永远是一个组织而非政党，中国共产党政权至高无上。SRO成员坚持爱国爱党爱社会主义高度统一，我们SRO成员永远相信中华民族伟大复兴必将实现！</h3>
+<h3>【总纲】</h3>
+<h3>（1）中国共产党政权至高无上！！！</h3>
+<h3>（2）SRO必须在中国特色社会主义法治体系内活动，以宪法和法律为活动准则。</h3>
+<h3>（3）SRO第二帝国（the Second Reich of SRO）是由学生阶级领导的，以MC-火影玩家为基础的组织。</h3>
+<h3>（4）在组织内部，元首至上，拥有最高决定权。</h3>
+<h3>（5）SRO的纲领是“广纳高质量人才，实现学生阶级大团结.”。</h3>
+<h3>【成员】</h3>
+<h3>（1）SRO成员拥有中华人民共和国法律所赋予的一切权利。</h3>
+<h3>（2）SRO成员必须履行中华人民共和国法律所规定的一切义务。</h3>
+<h3>（3）SRO内部言论自由（但不能在群里发附件3所提及的敏感词），宗教信仰自由（法轮功，全能神等邪教外）。</h3>
+<h3>（4）加入SRO需要找任意SRO成员提成申请，经元首批准后方可进入。</h3>
+<h3>（5）加入SRO即同意《SRO章程》。</h3>
+<h3>（6）SRO成员若要退出SRO，本组织不做任何限制。</h3>
+<h3>【辖区】</h3>
+<h3>（1）SRO领土为MC服务器。</h3>
+<h3>（2）SRO活动范围为东明一中四大级部（天璇、天玑、天权、天枢），派部长管辖。</h3>
+<h3>（3）各部下设区，派区长管辖。</h3>
+<h3>【机构】</h3>
+<h3>（1）元首为SRO最高权力机关，具有最高决定权。</h3>
+<h3>（2）铁三角议会为SRO权力机关，其成员对SRO内部决议具有一票否决权，铁三角成员由元首钦点。</h3>
+<h3>（3）设黎民黎明学会为SRO行政机关，统管SRO服务器，QQ群，TopKit。</h3>
+<h3>（4）设宣传组织部为SRO宣传机关，负责组织成员，管理SRO文学类工作。</h3>
+<h3>（5）军机处负责辅助元首，但无实权</h3>
+<h3>（6）外交部负责处理SRO对外事务。</h3>
+<h3>（7）SRO一切机关成员由元首任免。</h3>
+<h3>【其他】</h3>
+<h3>（1）SRO总部为元首所在辖区，名曰京师。</h3>
+<h3>（2）SRO旗帜为“铁三角旗”（见附件1）。</h3>
+<h3>（3）SRO组织歌曲为国际歌（见附件2）。</h3>
+<br>
+<a href="adds/add1.html">附件1</a>
+<br><br>
+<a href="adds/add2.html">附件2</a>
+<br><br>
+<a href="adds/add3.html">附件3</a>
+      <br>
+    </div>
+    
+  </div>
+  <div class="foot">
+    <br>
+    <p class="footword">SRO元首&nbsp;版权所有</p>
+    <p class="footword">联系我们</p>
+    <p class="footword">QQ群&nbsp;:&nbsp;1032407123</p>
+    <p class="footword">邮箱&nbsp;:&nbsp;sroclaude@outlook.com</p>
+    <br>
+  </div>
+</body>
+</html>

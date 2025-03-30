@@ -1,0 +1,97 @@
+/* 基础样式 */
+.header {
+  display: flex;
+  width: 100%;
+  background-color: #fff;
+  height: 10%;
+}
+
+.maptitle {
+  width: 40%;
+  background-color: #9A99FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.maptitle h1 {
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  line-height: 60px;
+}
+
+.mapbuts {
+  width: 60%;
+  display: flex;
+  background-color: #9A99FF;
+}
+
+/* 导航项样式 */
+.mapbut {
+  width: 20%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-decoration: none; /* 移除下划线 */
+}
+
+.mapbutp {
+  margin: 0;
+  color: #fff;
+  line-height: normal;
+}
+
+/* 下拉菜单样式 */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 100%;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  top: 100%;
+  left: 0;
+}
+
+.dropdown.active .dropdown-content {
+  display: block;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 下拉菜单项样式 */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none; /* 移除下划线 */
+  display: block;
+  text-align: center;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+.body{
+  width:100%;
+}
+.foot{
+  background-color:grey;
+  width:100%;
+}
+.footword{
+  font-size:15px;
+  text-align: center;
+  color:white;
+}

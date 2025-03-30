@@ -1,0 +1,233 @@
+<html>
+<head>
+  <title>SRO官方网站</title>
+  <link rel="stylesheet" href="common.css" type="text/css" media="all" />
+  <style type="text/css" media="all">
+    h1{
+      color:white;
+    }
+    body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  background-color: #1b1b32;
+  color: #f5f6f7;
+  font-family: Tahoma;
+  font-size: 16px;
+}
+
+h1, p {
+  margin: 1em auto;
+  text-align: center;
+}
+
+form {
+  width: 60vw;
+  max-width: 500px;
+  min-width: 300px;
+  margin: 0 auto;
+  padding-bottom: 2em;
+}
+
+fieldset {
+  border: none;
+  padding: 2rem 0;
+  border-bottom: 3px solid #3b3b4f;
+}
+
+fieldset:last-of-type {
+  border-bottom: none;
+}
+
+label {
+  display: block;
+  margin: 0.5rem 0;
+}
+
+input,
+textarea,
+select {
+  margin: 10px 0 0 0;
+  width: 100%;
+  min-height: 2em;
+}
+
+input, textarea {
+  background-color: #0a0a23;
+  border: 1px solid #0a0a23;
+  color: #ffffff;
+}
+
+.inline {
+  width: unset;
+  margin: 0 0.5em 0 0;
+  vertical-align: middle;
+}
+
+input[type="submit"] {
+  display: block;
+  width: 60%;
+  margin: 1em auto;
+  height: 2em;
+  font-size: 1.1rem;
+  background-color: #3b3b4f;
+  border-color: white;
+  min-width: 300px;
+}
+
+input[type="file"] {
+  padding: 1px 2px;
+}
+a{
+  color:#dfdfe2;
+}
+.niceButton{
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color:#fff;
+    background-color: rgb(16, 185, 214);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+.niceButton:hover{
+background-color: #1795bb;
+}
+.niceButton:active{
+    background-color: #1795bb;
+    box-shadow: 0 5px #666;
+    transform:translateY(4px);
+}
+  </style>
+  <script>
+    function nbpl(){
+      var t="网络环境不稳定。"
+      var t2="备用方案（应该没人会看到这句话）QQ群:1032407123"
+      alert(t);
+      alert(t2);
+    }
+  </script>
+</head>
+<body>
+  <div class="header">
+ <div class="maptitle">
+      <h1>SRO官方网站</h1>
+    </div>
+    <div class="mapbuts">
+      <a href="index.html" class="mapbut"><p class="mapbutp">首页</p></a>
+      <a href="notice.html" class="mapbut"><p class="mapbutp">公告栏</p></a>
+      <a href="topkit.html" class="mapbut"><p class="mapbutp">TopKit</p></a>
+      <div class="dropdown mapbut">
+        <div class="dropdown-toggle"><p class="mapbutp">黎民黎明学会</p></div>
+        <div class="dropdown-content">
+          <a href="topkit.html">TopKit</a>
+          <a href="server.html">MC服务器</a>
+          <a href="qq.html">QQ群</a>
+          <a href="join.html">申请加入</a>
+        </div>
+      </div>
+      <div class="dropdown mapbut">
+        <div class="dropdown-toggle"><p class="mapbutp">宣传组织部</p></div>
+        <div class="dropdown-content">
+          <a href="law.html">《SRO章程》</a>
+          <a href="history.html">简史</a>
+          <a href="lib.html">藏书阁</a>
+          
+          <a href="readme.html">声明</a>
+        </div>
+      </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // 点击触发下拉菜单
+  const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+  
+  dropdownToggles.forEach(toggle => {
+    toggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const dropdown = this.closest('.dropdown');
+      const isActive = dropdown.classList.contains('active');
+      
+      // 关闭所有其他下拉菜单
+      document.querySelectorAll('.dropdown').forEach(d => {
+        if (d !== dropdown) d.classList.remove('active');
+      });
+      
+      // 切换当前下拉菜单
+      dropdown.classList.toggle('active', !isActive);
+    });
+  });
+  
+  // 点击页面其他位置关闭下拉菜单
+  document.addEventListener('click', function() {
+    document.querySelectorAll('.dropdown').forEach(d => {
+      d.classList.remove('active');
+    });
+  });
+});
+</script>
+  <div class="body">
+    <h1>加入SRO</h1>
+    <p>开始你的光荣与梦想</p>
+    <form method="post" action='https://register-demo.freecodecamp.org'>
+      <fieldset>
+        <label for="first-name">姓名: <input id="first-name" name="first-name" type="text" required /></label>
+        <label for="last-name">年级和班级: <input id="last-name" name="last-name" type="text" required /></label>
+        <label >加入原因: <input id="email" name="email" type="text" required /></label>
+      </fieldset>
+      <fieldset>
+        性别
+        <label for="personal-account"><input id="personal-account" type="radio" name="account-type" class="inline" />男</label>
+        <label for="business-account"><input id="business-account" type="radio" name="account-type" class="inline" />女</label>
+        <label for="personal-account"><input id="personal-account" type="radio" name="account-type" class="inline" />草履虫</label>
+        <label for="terms-and-conditions">
+          <input id="terms-and-conditions" type="checkbox" required name="terms-and-conditions" class="inline" />我接受<a href="anzc.html">《SRO章程》</a>
+        </label>
+      </fieldset>
+      <fieldset>
+        <label for="profile-picture">附加文件<input id="profile-picture" type="file" name="file" /></label>
+        <label for="age">同志，您几岁了？<input id="age" type="number" name="age" min="13" max="120" /></label>
+        <label for="referrer">你是怎么知道的SRO?
+          <select id="referrer" name="referrer">
+            <option value="">(单选题)</option>
+            <option value="1">元首介绍</option>
+            <option value="2">朋友介绍</option>
+            <option value="3">我是老成员</option>
+            <option value="4">其他</option>
+          </select>
+        </label>
+        <label for="referrer" required>你愿不愿意永远忠于SRO?
+          <select id="referrer" name="referrer">
+            <option value="">(必选题)</option>
+            <option value="1">愿意</option>
+            <option value="2">十分愿意</option>
+            <option value="3">当然愿意</option>
+            <option value="4">这是微臣的荣幸</option>
+          </select>
+        </label>
+        <label for="bio">自我介绍:
+          <textarea id="bio" name="bio" rows="3" cols="30" placeholder="贫僧来自东土大唐……"></textarea>
+        </label>
+      </fieldset>
+      <button class="niceButton" onclick="nbpl();">加入SRO</button>
+    </form>
+    
+    
+  </div>
+  <div class="foot">
+    <br>
+    <p class="footword">SRO元首&nbsp;版权所有</p>
+    <p class="footword">联系我们</p>
+    <p class="footword">QQ群&nbsp;:&nbsp;1032407123</p>
+    <p class="footword">邮箱&nbsp;:&nbsp;sroclaude@outlook.com</p>
+    <br>
+  </div>
+</body>
+</html>
