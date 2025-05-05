@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>申请加入 - SRO 官方网站</title>
+    <link rel="stylesheet" href="common.css">
+    <style>
+        .application-box {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            color: #e6edf3;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            color: #e6edf3;
+            font-size: 14px;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 20px;
+        }
+
+        .radio-label {
+            display: flex;
+            align-items: center;
+            color: #e6edf3;
+        }
+
+        .radio-input {
+            margin-right: 8px;
+            accent-color: #2f81f7;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background: #238636;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.2s;
+        }
+
+        .submit-btn:hover {
+            background: #2ea043;
+        }
+
+        /* 弹窗样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 999;
+        }
+
+        .modal-content {
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #161b22;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 400px;
+        }
+
+        .modal-text {
+            color: #3fb950;
+            font-size: 20px;
+            margin: 20px 0;
+        }
+        .form-select {
+            width: 100%;
+            padding: 10px;
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            color: #e6edf3;
+            font-size: 14px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%237d8590'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <button class="nav-button" onclick="location.href='index.html'">首页</button>
+        <div class="header-title">SRO 官方网站</div>
+    </div>
+
+    <div id="body">
+        <div class="application-box">
+            <form id="applicationForm">
+                <div class="form-group">
+                    <label class="form-label">姓名</label>
+                    <input type="text" class="form-input" required>
+                </div>
+
+                
+                <div class="form-group">
+        
+                    <label class="form-label">性别</label>
+                            
+                    <select class="form-select" name="gender" required>
+                                
+                    <option value="male">男</option>
+                                
+                    <option value="female">女</option>
+                                
+                    
+                    
+                    <option value="other">男同</option>
+                    <option value="other">女同</option>
+                    <option value="other">异性恋</option>
+                    <option value="other">双性人</option>
+                    <option value="other">男双性恋</option>
+                    <option value="other">女双性恋</option>
+                    <option value="other">跨性别</option>
+                    <option value="other">变性人</option>
+                    <option value="other">无性别</option>
+                    <option value="other">草履虫</option>
+                    <option value="other">沃尔玛购物袋</option>
+                    <option value="other">阿帕奇武装直升机</option>
+                    <option value="other">满清第一巴图鲁</option>
+                    <option value="other">阳光彩虹小白马</option>
+                    <option value="other">葫芦娃</option>
+                    <option value="other">标清</option>
+                    <option value="other">高清</option>
+                    <option value="other">超清</option>
+                    <option value="other">大清</option>
+                    <option value="other">满清</option>
+                    <option value="other">时男时女</option>
+                    <option value="other">三体人</option>
+                    
+                            
+                    </select>
+                        
+                    </div>
+                    
+
+                <div class="form-group">
+                    <label class="form-label">班级</label>
+                    <input type="text" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">年龄</label>
+                    <input type="number" class="form-input" min="12" max="25" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">加入原因</label>
+                    <textarea class="form-input" rows="4" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">提交申请</button>
+            </form>
+        </div>
+
+        <!-- 成功弹窗 -->
+        <div id="successModal" class="modal">
+            <div class="modal-content">
+                <svg viewBox="0 0 24 24" width="60" height="60" fill="#3fb950">
+                    <path d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24zm-2 17l-5-5 1.4-1.4 3.6 3.6 7.6-7.6 1.4 1.4-9 9z"/>
+                </svg>
+                <div class="modal-text">申请提交成功！</div>
+                <button onclick="closeModal()" class="submit-btn" style="width: auto; padding: 8px 20px;">确定</button>
+            </div>
+        </div>
+
+        <div class="contact-info">
+            <p>SRO 版权所有</p>
+            <p>联系我们</p>
+            <p>QQ群 : 1032407123</p>
+            <p>邮箱 : sroclaude@outlook.com</p>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('applicationForm');
+        const modal = document.getElementById('successModal');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if(form.checkValidity()) {
+                modal.style.display = 'block';
+                form.reset();
+            }
+        });
+
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+
+        // 点击蒙层关闭弹窗
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
