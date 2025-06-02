@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>服务器 - SRO 官方网站</title>
+    <link rel="stylesheet" href="common.css">
+    <style>
+        /* 服务器展示页样式 */
+        .server-banner {
+            height: 60vh;
+            min-height: 400px;
+            background: #000;
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .server-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.9;
+            border-bottom: 4px solid #2f81f7;
+        }
+
+        .server-info {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .server-title {
+            font-size: 2.5em;
+            color: #2f81f7;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .ip-box {
+            background: #161b22;
+            border: 2px solid #30363d;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .ip-text {
+            font-family: monospace;
+            font-size: 1.4em;
+            color: #3fb950;
+        }
+
+        .copy-button {
+            background: #238636;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .copy-button:hover {
+            background: #2ea043;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .feature-card h3 {
+            color: #e6edf3;
+            margin-bottom: 15px;
+            border-left: 3px solid #2f81f7;
+            padding-left: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .feature-list {
+                grid-template-columns: 1fr;
+            }
+            .ip-box {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .server-title {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <button class="nav-button" onclick="location.href='index.html'">首页</button>
+        <div class="header-title">SRO 官方网站</div>
+    </div>
+
+    <div id="body">
+        <div class="server-info">
+            <h1 class="server-title">SRO服务器</h1>
+            <img src="imgs/preview.png" alt="服务器全景图" class="server-image">
+            <div class="ip-box">
+                <div class="ip-text">只有寒暑假才有固定IP</div>
+                <div class="copy-button">复制IP</div>
+            </div>
+
+            <div class="feature-list">
+                <div class="feature-card">
+                    <h3>特色玩法</h3>
+                    <ul>
+                        <li>⚡ 生电玩法</li>
+                        <li>🏰 建筑玩法</li>
+                        <li>🔧 生存玩法</li>
+                        <li>🎮 泰豪丸辣</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h3>服务器参数</h3>
+                    <ul>
+                        <li>📡 24小时在线</li>
+                        <li>💾 辣鸡服务器配小内存</li>
+                        <li>🚀 没有专用游戏线路</li>
+                        <li>🛡️ 没有反作弊防护</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <h3>加入我们</h3>
+                <p>版本要求：Java版 1.21<br>
+                非固定IP时期记得去QQ群看临时IP<br>
+                    WELCOME TO SRO</p>
+            </div>
+        </div>
+
+        <div class="contact-info">
+            <p>SRO 版权所有</p>
+            <p>联系我们</p>
+            <p>QQ群 : 1032407123</p>
+            <p>邮箱 : sroclaude@outlook.com</p>
+        </div>
+    </div>
+</body>
+</html>

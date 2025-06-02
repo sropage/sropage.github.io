@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>软件园 - SRO 官方网站</title>
+    <link rel="stylesheet" href="common.css">
+    <style>
+        /* 软件卡片容器 */
+        .software-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 单个软件卡片 */
+        .software-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.2s;
+        }
+
+        .software-card:hover {
+            transform: translateY(-5px);
+            border-color: #2f81f7;
+        }
+
+        /* 软件图标 */
+        .software-icon {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 16px;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        /* 软件信息 */
+        .software-name {
+            font-size: 1.2em;
+            color: #e6edf3;
+            margin-bottom: 4px;
+        }
+
+        .software-version {
+            color: #7d8590;
+            font-size: 0.9em;
+            margin-bottom: 12px;
+        }
+
+        .software-desc {
+            color: #8b949e;
+            font-size: 0.95em;
+            line-height: 1.5;
+            min-height: 72px;
+            margin-bottom: 16px;
+        }
+
+        /* 下载按钮 */
+        .download-btn {
+            display: block;
+            width: 100%;
+            padding: 8px 16px;
+            background: #238636;
+            color: white;
+            text-align: center;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .download-btn:hover {
+            background: #2ea043;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1024px) {
+            .software-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .software-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <button class="nav-button" onclick="location.href='index.html'">首页</button>
+        <div class="header-title">SRO 官方网站</div>
+    </div>
+
+    <div id="body">
+        <div class="software-grid">
+            <!-- 模板
+            <div class="software-card">
+                <img src="icons/.png" alt="超简单的介绍" class="software-icon">
+                <div class="software-name">名称</div>
+                <div class="software-version">v版本</div>
+                <p class="software-desc">简介</p>
+                <a href="apps/" class="download-btn">下载</a>
+            </div> -->
+            <div class="software-card">
+                <img src="icons/slink.png" alt="Slink" class="software-icon">
+                <div class="software-name">Slink</div>
+                <div class="software-version">v0.1</div>
+                <p class="software-desc">SRO自己的浏览器，搭载百度搜索引擎。</p>
+                <a href="apps/slink.apk" class="download-btn">下载</a>
+            </div>
+            <div class="software-card">
+                <img src="icons/solvix.png" alt="Solvix" class="software-icon">
+                <div class="software-name">Solvix</div>
+                <div class="software-version">v0.0</div>
+                <p class="software-desc">Solvix是SRO自研的人工智能，目前为半成品，暑假之前肯定能发布。</p>
+                <a href="#" class="download-btn">敬请期待</a>
+            </div>
+            <div class="software-card">
+                <img src="icons/strans.png" alt="Strans" class="software-icon">
+                <div class="software-name">Strans</div>
+                <div class="software-version">v0.0</div>
+                <p class="software-desc">Strans是SRO自己的翻译软件</p>
+                <a href="#" class="download-btn">敬请期待</a>
+            </div>
+        </div>
+
+        <div class="contact-info">
+            <p>SRO 版权所有</p>
+            <p>联系我们</p>
+            <p>QQ群 : 1032407123</p>
+            <p>邮箱 : sroclaude@outlook.com</p>
+        </div>
+    </div>
+</body>
+</html>

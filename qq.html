@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>QQ群 - SRO 官方网站</title>
+    <link rel="stylesheet" href="common.css">
+    <style>
+        /* 全屏容器 */
+        .cyber-container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 二维码图片样式 */
+        .cyber-qr {
+            width: 300px;
+            height: 300px;
+            border: 3px solid #2f81f7;
+            box-shadow: 0 0 30px rgba(47, 129, 247, 0.4);
+            margin-bottom: 40px;
+            transition: transform 0.3s;
+        }
+
+        .cyber-qr:hover {
+            transform: rotate(5deg) scale(1.05);
+        }
+
+        /* 科幻文字特效 */
+        .cyber-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3em;
+            background: linear-gradient(45deg, #2f81f7, #3fb950);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+            animation: neonPulse 1.5s infinite alternate;
+        }
+
+        .cyber-text::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            background: #3fb950;
+            bottom: -10px;
+            left: 0;
+            filter: blur(5px);
+        }
+
+        /* 背景动态网格 */
+        .cyber-grid {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(47, 129, 247, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(47, 129, 247, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: 0;
+        }
+
+        /* 动画效果 */
+        @keyframes neonPulse {
+            from {
+                text-shadow: 0 0 5px rgba(47, 129, 247, 0.8),
+                           0 0 15px rgba(63, 185, 80, 0.6);
+            }
+            to {
+                text-shadow: 0 0 20px rgba(47, 129, 247, 1),
+                           0 0 30px rgba(63, 185, 80, 0.8);
+            }
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .cyber-qr {
+                width: 200px;
+                height: 200px;
+            }
+            .cyber-text {
+                font-size: 2em;
+            }
+        }
+    </style>
+    <!-- 引入科幻字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="header">
+        <button class="nav-button" onclick="location.href='index.html'">首页</button>
+        <div class="header-title">SRO 官方网站</div>
+    </div>
+
+    <div class="cyber-container">
+        <div class="cyber-grid"></div>
+        <img src="imgs/code.svg" alt="扫码进群" class="cyber-qr">
+        <h1 class="cyber-text">SCAN TO JOIN</h1>
+    </div>
+</body>
+</html>
