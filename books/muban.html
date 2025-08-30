@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>SRO 官方网站</title>
+    <link rel="stylesheet" href="../common.css">
+    <style>
+        .reader-container {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            color: #e6edf3;
+        }
+
+        .article-title {
+            font-size: 2.2em;
+            color: #2f81f7;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #30363d;
+            padding-bottom: 15px;
+        }
+
+        .article-content {
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .article-content p {
+            text-indent: 2em;
+            margin-bottom: 20px;
+        }
+
+        .chapter-title {
+            font-size: 1.6em;
+            color: #3fb950;
+            margin: 40px 0 20px;
+            border-left: 4px solid #2f81f7;
+            padding-left: 15px;
+        }
+
+        /* 引用样式 */
+        blockquote {
+            color: #7d8590;
+            border-left: 4px solid #30363d;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #161b22;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 1.8em;
+            }
+            .chapter-title {
+                font-size: 1.4em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <button class="nav-button" onclick="location.href='../index.html'">首页</button>
+        <div class="header-title">SRO 官方网站</div>
+    </div>
+
+    <div id="body">
+        <div class="reader-container">
+            <h1 class="article-title">书名</h1>
+            
+            <div class="article-content">
+                <!-- h2是章节名
+                blockquote标签可以引用名言 -->
+            </div>
+        </div>
+
+        <div class="contact-info">
+            <p>SRO 版权所有</p>
+            <p>联系我们</p>
+            <p>QQ群 : 1032407123</p>
+            <p>邮箱 : sroniko@outlook.com</p>
+        </div>
+    </div>
+</body>
+</html>
