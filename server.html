@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>服务器 - SRO 官方网站</title>
+    <link rel="stylesheet" href="common.css">
+    <style>
+        /* 服务器展示页样式 */
+        .server-banner {
+            height: 60vh;
+            min-height: 400px;
+            background: #000;
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .server-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.9;
+            border-bottom: 4px solid #2f81f7;
+        }
+
+        .server-info {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .server-title {
+            font-size: 2.5em;
+            color: #2f81f7;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .ip-box {
+            background: #161b22;
+            border: 2px solid #30363d;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .ip-text {
+            font-family: monospace;
+            font-size: 1.4em;
+            color: #3fb950;
+        }
+
+        .copy-button {
+            background: #238636;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .copy-button:hover {
+            background: #2ea043;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .feature-card h3 {
+            color: #e6edf3;
+            margin-bottom: 15px;
+            border-left: 3px solid #2f81f7;
+            padding-left: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .feature-list {
+                grid-template-columns: 1fr;
+            }
+            .ip-box {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .server-title {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <button class="nav-button" onclick="location.href='index.html'">首页</button>
+        <div class="header-title">SRO 官方网站</div>
+    </div>
+
+    <div id="body">
+        <div class="server-info">
+            <h1 class="server-title">服务器日志</h1>
+            
+            <div class="ip-box">
+                <div class="ip-text">版本：1.21.X</div>
+            </div>
+            <div class="ip-box">
+                <div class="ip-text">IP:srgmc.top</div>
+            </div>
+            
+
+            <div class="feature-card">
+                <h3>日志</h3>
+                <p>2020.08.30|开学将至，无力回天，东明一中，CNMB,仰天长啸，倚仗叹息。</p>
+                <p>2020.08.29|伟大元首雕像竣工</p>
+                <p>2020.08.28|元首开始开发主城领土</p>
+                <p>2020.08.26|SRO钢铁产量大爆发</p>
+                <p>2020.08.26|新成员贝利亚加入</p>
+                <p>2020.08.26|SRO成员打试炼大厅</p>
+                <p>2020.08.24|100种die法（下）</p>
+                <p>2020.08.23|100种die法（上）</p>
+                <p>2020.08.21|元首在主城盘下一片街区</p>
+                <p>2020.08.19|男神府邸开始建设</p>
+                <p>2020.08.18|盾构机炸膛</p>
+                <p>2025.08.17|帝国东方大拆迁</p>
+                <p>2025.08.16|盾构机竣工</p>
+                <p>2.05.08.15|元首回归</p>
+                <p>2025.08.14|SRO多核心盾构机开始建设</p>
+                <p>2025.08.10|元首休养生息</p>
+                <p>2025.08.09|建筑大跃进</p>
+                <p>2025.08.08|山水庄园地基</p>
+                <p>2025.08.07|高速熔炉</p>
+                <p>2025.08.07|刷石机</p>
+                <p>2025.08.06|元首在主城买下凌华雕像</p>
+                <p>2025.08.06|公共仓库扩容</p>
+                <p>2020.08.05|元首fucked all player</p>
+                <p>2025.08.04|第二帝国全面脱贫</p>
+                <p>2025.08.03|元首大号利用服务器漏洞打赢复活赛（已被修复）</p>
+                <p>2025.08.02|偶遇牢大雕像</p>
+                <p>2025.08.01|元首府邸竣工</p>
+                <p>2025.07.28|003铁路（公共仓库-王red的家）</p>
+                <p>2025.07.27|矿透小号Franklin被封</p>
+                <p>2025.07.26|第一次开透视作弊</p>
+                <p>2025.07.26|元首大号被封，元首使用小号PIC</p>
+                <p>2025.07.25|211160偷窃案</p>
+                <p>2025.07.25|第二帝国东征</p>
+                <p>2025.07.24|天空即为极限</p>
+                <p>2025.07.24|002铁路（宋red的家-001号交易所）</p>
+                <p>2025.07.24|001号交易所成立</p>
+                <p>2025.07.23|001铁路（元首府邸（建造中）-宋red的家）</p>
+                <p>2025.07.20|刷铁轨机</p>
+                <p>2025.07.17|SRO公共仓库</p>
+                <p>2025.07.15|元首开辟了SRO基地</p>
+                <p>2025.07.14|SRO入驻清风服务器</p>
+            </div>
+            <!-- <img src="imgs/preview.png" alt="SRO领土" class="server-image"> -->
+        </div>
+
+        <div class="contact-info">
+            <p>SRO 版权所有</p>
+            <p>联系我们</p>
+            <p>QQ群 : 1032407123</p>
+            <p>邮箱 : sroniko@outlook.com</p>
+        </div>
+    </div>
+</body>
+</html>
