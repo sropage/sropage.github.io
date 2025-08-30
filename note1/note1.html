@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>公告栏 - SRO 官方网站</title>
+    <link rel="stylesheet" href="../common.css">
+    <style>
+        /* GitHub风格公告列表 */
+        .issues-list {
+            max-width: 980px;
+            margin: 0 auto;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+        }
+
+        .issue-item {
+            padding: 16px;
+            border-bottom: 1px solid #30363d;
+            background-color: #0d1117;
+            transition: background-color 0.12s ease-out;
+        }
+
+        .issue-item:last-child {
+            border-bottom: 0;
+        }
+
+        .issue-item:hover {
+            background-color: #161b22;
+        }
+
+        .issue-link {
+            display: flex;
+            gap: 8px;
+            text-decoration: none !important;
+        }
+
+        .issue-icon {
+            color: #3fb950;
+            margin-top: 4px;
+        }
+
+        .issue-content {
+            flex-grow: 1;
+        }
+
+        .issue-title {
+            color: #e6edf3;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .issue-meta {
+            display: flex;
+            gap: 16px;
+            color: #7d8590;
+            font-size: 12px;
+        }
+
+        .issue-label {
+            display: inline-flex;
+            padding: 0 7px;
+            font-size: 12px;
+            line-height: 18px;
+            border: 1px solid #30363d;
+            border-radius: 2em;
+            background-color: #161b22;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .issue-link {
+                flex-direction: column;
+            }
+            .issue-meta {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <button class="nav-button" onclick="location.href='../index.html'">首页</button>
+        <div class="header-title">SRO 官方网站</div>
+    </div>
+
+    <div id="body">
+        
+
+        
+        <div class="issues-list">
+            <!-- 模板
+            <div class="issue-item">
+                <a href="2025.html" class="issue-link">
+                    <svg class="issue-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
+                    </svg>
+                    <div class="issue-content">
+                        <div class="issue-title">title</div>
+                        <div class="issue-meta">
+                            <span>2025-06-15</span>
+                        </div>
+                    </div>
+                </a>
+            </div> -->
+            <div class="issue-item">
+                <a href="20250830.html" class="issue-link">
+                    <svg class="issue-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
+                    </svg>
+                    <div class="issue-content">
+                        <div class="issue-title">向东校区进军</div>
+                        <div class="issue-meta">
+                            <span>2025-08-30</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="issue-item">
+                <a href="20250823.html" class="issue-link">
+                    <svg class="issue-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
+                    </svg>
+                    <div class="issue-content">
+                        <div class="issue-title">暑假结算</div>
+                        <div class="issue-meta">
+                            <span>2025-08-23</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="issue-item">
+                <a href="20250817.html" class="issue-link">
+                    <svg class="issue-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
+                    </svg>
+                    <div class="issue-content">
+                        <div class="issue-title">恩准打造青鸾网盘</div>
+                        <div class="issue-meta">
+                            <span>2025-08-17</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="issue-item">
+                <a href="20250802.html" class="issue-link">
+                    <svg class="issue-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
+                    </svg>
+                    <div class="issue-content">
+                        <div class="issue-title">撤销克劳德工程，大力推进“刺秦”工程</div>
+                        <div class="issue-meta">
+                            <span>2025-08-02</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="issue-item">
+                <a href="20250723.html" class="issue-link">
+                    <svg class="issue-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
+                    </svg>
+                    <div class="issue-content">
+                        <div class="issue-title">画三个大饼</div>
+                        <div class="issue-meta">
+                            <span>2025-07-23</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="issue-item">
+                <a href="20250722.html" class="issue-link">
+                    <svg class="issue-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
+                    </svg>
+                    <div class="issue-content">
+                        <div class="issue-title">立项“刺秦”工程</div>
+                        <div class="issue-meta">
+                            <span>2025-07-22</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="issue-item">
+                <a href="20250713.html" class="issue-link">
+                    <svg class="issue-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
+                    </svg>
+                    <div class="issue-content">
+                        <div class="issue-title">班师回朝</div>
+                        <div class="issue-meta">
+                            <span>2025-07-13</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="issue-item">
+                <a href="20250712.html" class="issue-link">
+                    <svg class="issue-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
+                    </svg>
+                    <div class="issue-content">
+                        <div class="issue-title">对黑熊宣战</div>
+                        <div class="issue-meta">
+                            <span>2025-07-12</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="issue-item">
+                <a href="2025062302.html" class="issue-link">
+                    <svg class="issue-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
+                    </svg>
+                    <div class="issue-content">
+                        <div class="issue-title">成立掠夺与欺诈委员会</div>
+                        <div class="issue-meta">
+                            <span>2025-06-23</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="issue-item">
+                <a href="20250623.html" class="issue-link">
+                    <svg class="issue-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
+                    </svg>
+                    <div class="issue-content">
+                        <div class="issue-title">组织的经济纲领</div>
+                        <div class="issue-meta">
+                            <span>2025-06-23</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="issue-item">
+                <a href="20250607.html" class="issue-link">
+                    <svg class="issue-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
+                    </svg>
+                    <div class="issue-content">
+                        <div class="issue-title">公布联合主义</div>
+                        <div class="issue-meta">
+                            <span>2025-06-07</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="issue-item">
+                <a href="20250523.html" class="issue-link">
+                    <svg class="issue-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
+                    </svg>
+                    <div class="issue-content">
+                        <div class="issue-title">唯物主义与联合主义</div>
+                        <div class="issue-meta">
+                            <span>2025-05-23</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="issue-item">
+                <a href="20250425.html" class="issue-link">
+                    <svg class="issue-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
+                    </svg>
+                    <div class="issue-content">
+                        <div class="issue-title">贯彻铁三角五大精神</div>
+                        <div class="issue-meta">
+                            <span>2025-04-25</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="issue-item">
+                <a href="20250327.html" class="issue-link">
+                    <svg class="issue-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
+                    </svg>
+                    <div class="issue-content">
+                        <div class="issue-title">我们拒绝签字</div>
+                        <div class="issue-meta">
+                            <span>2025-03-27</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="issue-item">
+                <a href="20250320.html" class="issue-link">
+                    <svg class="issue-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
+                    </svg>
+                    <div class="issue-content">
+                        <div class="issue-title">贸易战</div>
+                        <div class="issue-meta">
+                            <span>2025-03-20</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="issue-item">
+                <a href="20250307.html" class="issue-link">
+                    <svg class="issue-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
+                    </svg>
+                    <div class="issue-content">
+                        <div class="issue-title">和大牛逼帝国建交</div>
+                        <div class="issue-meta">
+                            <span>2025-03-07</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="issue-item">
+                <a href="20250223.html" class="issue-link">
+                    <svg class="issue-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
+                    </svg>
+                    <div class="issue-content">
+                        <div class="issue-title">平定SRC叛乱</div>
+                        <div class="issue-meta">
+                            <span>2025-02-23</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="issue-item">
+                <a href="20250205.html" class="issue-link">
+                    <svg class="issue-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
+                    </svg>
+                    <div class="issue-content">
+                        <div class="issue-title">元首批准实施《SRO章程》</div>
+                        <div class="issue-meta">
+                            <span>2025-02-05</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="issue-item">
+                <a href="20250121.html" class="issue-link">
+                    <svg class="issue-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
+                    </svg>
+                    <div class="issue-content">
+                        <div class="issue-title">乙巳改新</div>
+                        <div class="issue-meta">
+                            <span>2025-01-21</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="issue-item">
+                <a href="20241225.html" class="issue-link">
+                    <svg class="issue-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
+                    </svg>
+                    <div class="issue-content">
+                        <div class="issue-title">圣诞节决议</div>
+                        <div class="issue-meta">
+                            <span>2024-12-25</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="issue-item">
+                <a href="20241017.html" class="issue-link">
+                    <svg class="issue-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
+                    </svg>
+                    <div class="issue-content">
+                        <div class="issue-title">改旗易帜</div>
+                        <div class="issue-meta">
+                            <span>2024-10-17</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="issue-item">
+                <a href="20240806.html" class="issue-link">
+                    <svg class="issue-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
+                    </svg>
+                    <div class="issue-content">
+                        <div class="issue-title">希儿行动</div>
+                        <div class="issue-meta">
+                            <span>2024-08-06</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="issue-item">
+                <a href="20240615.html" class="issue-link">
+                    <svg class="issue-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
+                    </svg>
+                    <div class="issue-content">
+                        <div class="issue-title">第二帝国成立</div>
+                        <div class="issue-meta">
+                            <span>2024-06-15</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="issue-item">
+                <a href="20240613.html" class="issue-link">
+                    <svg class="issue-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
+                    </svg>
+                    <div class="issue-content">
+                        <div class="issue-title">第一帝国解体</div>
+                        <div class="issue-meta">
+                            <span>2024-06-13</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="issue-item">
+                <a href="20240605.html" class="issue-link">
+                    <svg class="issue-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
+                    </svg>
+                    <div class="issue-content">
+                        <div class="issue-title">红警高玩</div>
+                        <div class="issue-meta">
+                            <span>2024-06-05</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="issue-item">
+                <a href="20240415.html" class="issue-link">
+                    <svg class="issue-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
+                    </svg>
+                    <div class="issue-content">
+                        <div class="issue-title">运动倡议</div>
+                        <div class="issue-meta">
+                            <span>2024-04-15</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="issue-item">
+                <a href="20240101.html" class="issue-link">
+                    <svg class="issue-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
+                    </svg>
+                    <div class="issue-content">
+                        <div class="issue-title">向陆圈一中宣战</div>
+                        <div class="issue-meta">
+                            <span>2024-01-01</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="issue-item">
+                <a href="20231213.html" class="issue-link">
+                    <svg class="issue-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
+                    </svg>
+                    <div class="issue-content">
+                        <div class="issue-title">元首为南京大屠杀遇难者默哀</div>
+                        <div class="issue-meta">
+                            <span>2023-12-13</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="issue-item">
+                <a href="20231010.html" class="issue-link">
+                    <svg class="issue-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
+                    </svg>
+                    <div class="issue-content">
+                        <div class="issue-title">涅槃重生决议</div>
+                        <div class="issue-meta">
+                            <span>2023-10-10</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="issue-item">
+                <a href="20230623.html" class="issue-link">
+                    <svg class="issue-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
+                    </svg>
+                    <div class="issue-content">
+                        <div class="issue-title">元首称帝</div>
+                        <div class="issue-meta">
+                            <span>2023-06-23</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="issue-item">
+                <a href="20230615.html" class="issue-link">
+                    <svg class="issue-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
+                    </svg>
+                    <div class="issue-content">
+                        <div class="issue-title">行星防御理事会成立</div>
+                        <div class="issue-meta">
+                            <span>2023-06-15</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="issue-item">
+                <a href="2023061302.html" class="issue-link">
+                    <svg class="issue-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
+                    </svg>
+                    <div class="issue-content">
+                        <div class="issue-title">《SRO大宪章》发表</div>
+                        <div class="issue-meta">
+                            <span>2023-06-13</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- 单个公告模板 -->
+            <div class="issue-item">
+                <a href="20230613.html" class="issue-link">
+                    <svg class="issue-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
+                    </svg>
+                    <div class="issue-content">
+                        <div class="issue-title">SRO宣告成立</div>
+                        <div class="issue-meta">
+                            <span>2023-06-13</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="contact-info">
+            <p>SRO 版权所有</p>
+            <p>联系我们</p>
+            <p>QQ群 : 1032407123</p>
+            <p>邮箱 : sroniko@outlook.com</p>
+        </div>
+    </div>
+</body>
+</html>
