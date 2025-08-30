@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>青鸾游戏站 - SRO 官方网站</title>
+    <link rel="stylesheet" href="common.css">
+    <style>
+        /* 软件卡片容器 */
+        .software-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 单个软件卡片 */
+        .software-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.2s;
+        }
+
+        .software-card:hover {
+            transform: translateY(-5px);
+            border-color: #2f81f7;
+        }
+
+        /* 软件图标 */
+        .software-icon {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 16px;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        /* 软件信息 */
+        .software-name {
+            font-size: 1.2em;
+            color: #e6edf3;
+            margin-bottom: 4px;
+        }
+
+        .software-version {
+            color: #7d8590;
+            font-size: 0.9em;
+            margin-bottom: 12px;
+        }
+
+        .software-desc {
+            color: #8b949e;
+            font-size: 0.95em;
+            line-height: 1.5;
+            min-height: 72px;
+            margin-bottom: 16px;
+        }
+
+        /* 下载按钮 */
+        .download-btn {
+            display: block;
+            width: 100%;
+            padding: 8px 16px;
+            background: #238636;
+            color: white;
+            text-align: center;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .download-btn:hover {
+            background: #2ea043;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1024px) {
+            .software-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .software-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <button class="nav-button" onclick="location.href='index.html'">首页</button>
+        <div class="header-title">SRO 官方网站</div>
+    </div>
+
+    <div id="body">
+        <p>备注：本站游戏皆为盗版，请放肆游玩，如果链接生效，请向SRO青鸾学会报告</p>
+        <div class="software-grid">
+            <!-- <div class="software-card">
+                <img src="链接" alt="软件名" class="software-icon">
+                <div class="software-name">软件名</div>
+                <br><br><br>
+                <a href="下载链接" class="download-btn">下载</a>
+            </div> -->
+            <div class="software-card">
+                <img src="http://111.230.98.67:10736/D%3A/SROweb/icons/ggta5.jpg" alt="GTA5" class="software-icon">
+                <div class="software-name">GTA5</div>
+                <br><br><br>
+                <a href="https://pan.quark.cn/s/2116dba98de6#/list/share" class="download-btn">下载</a>
+            </div>
+            <div class="software-card">
+                <img src="http://111.230.98.67:10736/D%3A/SROweb/icons/grdr2.jpg" alt="荒野大镖客：救赎2" class="software-icon">
+                <div class="software-name">荒野大镖客：救赎2</div>
+                <br><br><br>
+                <a href="https://pan.quark.cn/s/ce77dc5c0280" class="download-btn">下载</a>
+            </div>
+            <div class="software-card">
+                <img src="http://111.230.98.67:10736/D%3A/SROweb/icons/gcp2077.jpg" alt="赛博朋克2077：往日之影" class="software-icon">
+                <div class="software-name">赛博朋克2077：往日之影</div>
+                <br><br><br>
+                <a href="https://pan.quark.cn/s/102c44f93dcf#/list/share" class="download-btn">下载</a>
+            </div>
+            <div class="software-card">
+                <img src="http://111.230.98.67:10736/D%3A/SROweb/icons/gsekiro.jpg" alt="只狼：影逝二度" class="software-icon">
+                <div class="software-name">只狼：影逝二度</div>
+                <br><br><br>
+                <a href="#" class="download-btn">敬请期待</a>
+            </div>
+            <div class="software-card">
+                <img src="http://111.230.98.67:10736/D%3A/SROweb/icons/ghorzon.webp" alt="极限竞速：地平线5" class="software-icon">
+                <div class="software-name">极限竞速：地平线5</div>
+                <br><br><br>
+                <a href="https://pan.quark.cn/s/b8c5bd20d72c#/list/share" class="download-btn">下载</a>
+            </div>
+            <div class="software-card">
+                <img src="http://111.230.98.67:10736/D%3A/SROweb/icons/gghost.webp" alt="对马岛之魂" class="software-icon">
+                <div class="software-name">对马岛之魂</div>
+                <br><br><br>
+                <a href="https://pan.quark.cn/s/bfef9a92ccbb#/list/share" class="download-btn">下载</a>
+            </div>
+            <div class="software-card">
+                <img src="http://111.230.98.67:10736/D%3A/SROweb/icons/gckxt.webp" alt="刺客信条：幻景" class="software-icon">
+                <div class="software-name">刺客信条：幻景</div>
+                <br><br><br>
+                <a href="https://pan.quark.cn/s/b9e5b2412c2b#/list/share" class="download-btn">下载</a>
+            </div>
+            <div class="software-card">
+                <img src="http://111.230.98.67:10736/D%3A/SROweb/icons/ggow4.jpg" alt="战神4" class="software-icon">
+                <div class="software-name">战神4</div>
+                <br><br><br>
+                <a href="#" class="download-btn">敬请期待</a>
+            </div>
+            <div class="software-card">
+                <img src="http://111.230.98.67:10736/D%3A/SROweb/icons/gciv.webp" alt="文明6" class="software-icon">
+                <div class="software-name">文明6</div>
+                <br><br><br>
+                <a href="https://pan.quark.cn/s/0e3d9f28684a#/list/share" class="download-btn">下载</a>
+            </div>
+            <div class="software-card">
+                <img src="http://111.230.98.67:10736/D%3A/SROweb/icons/ger.jpg" alt="艾尔登法环" class="software-icon">
+                <div class="software-name">艾尔登法环</div>
+                <br><br><br>
+                <a href="https://pan.quark.cn/s/75e0924be823#/list/share" class="download-btn">下载</a>
+            </div>
+            <div class="software-card">
+                <img src="http://111.230.98.67:10736/D%3A/SROweb/icons/glou1.jpg" alt="最后生还者" class="software-icon">
+                <div class="software-name">最后生还者</div>
+                <br><br><br>
+                <a href="https://pan.quark.cn/s/09f7f806d278#/list/share" class="download-btn">下载</a>
+            </div>
+            <div class="software-card">
+                <img src="http://111.230.98.67:10736/D%3A/SROweb/icons/ghoi.jpg" alt="钢铁雄心4" class="software-icon">
+                <div class="software-name">钢铁雄心4</div>
+                <br><br><br>
+                <a href="https://pan.xunlei.com/s/VOCnGWaqdLhsTO8CwQjdwuUjA1?pwd=tb5m" class="download-btn">下载</a>
+            </div>
+            <div class="software-card">
+                <img src="http://111.230.98.67:10736/D%3A/SROweb/icons/gvic3.jpg" alt="维多利亚3" class="software-icon">
+                <div class="software-name">维多利亚3</div>
+                <br><br><br>
+                <a href="https://pan.quark.cn/s/d6f7d18db0ed#/list/share" class="download-btn">下载</a>
+            </div>
+            <div class="software-card">
+                <img src="http://111.230.98.67:10736/D%3A/SROweb/icons/gzelda.webp" alt="塞尔达传说：王国之泪" class="software-icon">
+                <div class="software-name">塞尔达传说：王国之泪</div>
+                <br><br><br>
+                <a href="https://url42.ctfile.com/f/22219942-848343438-c8308b?p=1591" class="download-btn">下载（城通网盘）</a>
+            </div>
+            <div class="software-card">
+                <img src="http://111.230.98.67:10736/D%3A/SROweb/icons/gspiderman.webp" alt="漫威蜘蛛侠" class="software-icon">
+                <div class="software-name">漫威蜘蛛侠</div>
+                <br><br><br>
+                <a href="https://pan.quark.cn/s/73bd67cabf3e#/list/share" class="download-btn">下载</a>
+            </div>
+            <div class="software-card">
+                <img src="http://111.230.98.67:10736/D%3A/SROweb/icons/gnba2k.jpg" alt="NBA2K" class="software-icon">
+                <div class="software-name">NBA2K</div>
+                <br><br><br>
+                <a href="https://www.gfans.cc/jx/lczkm5tp" class="download-btn">下载（飞猫网盘）</a>
+            </div>
+            <div class="software-card">
+                <img src="http://111.230.98.67:10736/D%3A/SROweb/icons/gttyl.jpg" alt="泰坦陨落2" class="software-icon">
+                <div class="software-name">泰坦陨落2</div>
+                <br><br><br>
+                <a href="https://pan.quark.cn/s/23a3d5ddf928#/list/share" class="download-btn">下载</a>
+            </div>
+            <div class="software-card">
+                <img src="http://111.230.98.67:10736/D%3A/SROweb/icons/ghalf.jpg" alt="半条命2" class="software-icon">
+                <div class="software-name">半条命2</div>
+                <br><br><br>
+                <a href="https://pan.quark.cn/s/602b1756fc21#/list/share" class="download-btn">下载</a>
+            </div>
+            <div class="software-card">
+                <img src="http://111.230.98.67:10736/D%3A/SROweb/icons/gwit.jpg" alt="巫师3：狂猎" class="software-icon">
+                <div class="software-name">巫师3：狂猎</div>
+                <br><br><br>
+                <a href="#" class="download-btn">敬请期待</a>
+            </div>
+        </div>
+
+        <div class="contact-info">
+            <p>SRO 版权所有</p>
+            <p>联系我们</p>
+            <p>QQ群 : 1032407123</p>
+            <p>邮箱 : sroniko@outlook.com</p>
+        </div>
+    </div>
+</body>
+</html>

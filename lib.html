@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>帝国博物馆 - SRO 官方网站</title>
+    <link rel="stylesheet" href="common.css">
+    <style>
+        .museum-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .museum-title {
+            font-size: 2.2em;
+            color: #2f81f7;
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #30363d;
+            padding-bottom: 15px;
+        }
+
+        .artifacts-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .artifact-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.2s;
+            text-align: center;
+        }
+
+        .artifact-card:hover {
+            transform: translateY(-5px);
+            border-color: #2f81f7;
+            box-shadow: 0 5px 15px rgba(47, 129, 247, 0.2);
+        }
+
+        .artifact-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .artifact-title {
+            color: #e6edf3;
+            font-size: 1.1em;
+            padding: 15px 10px;
+            margin: 0;
+        }
+
+        @media (max-width: 1200px) {
+            .artifacts-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .artifacts-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .artifacts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <button class="nav-button" onclick="location.href='index.html'">首页</button>
+        <div class="header-title">SRO 官方网站</div>
+    </div>
+
+    <div id="body">
+        <div class="museum-container">
+            
+
+            <div class="artifacts-grid">
+                <!-- <div class="artifact-card">
+                    <img src="imgs/lib/001.jpg" class="artifact-image">
+                    <h3 class="artifact-title">000</h3>
+                </div> -->
+                <div class="artifact-card">
+                    <img src="http://111.230.98.67:10736/D%3A/SROweb/imgs/lib/001.jpg" class="artifact-image">
+                    <h3 class="artifact-title">SRO成立信物</h3>
+                </div>
+                <div class="artifact-card">
+                    <img src="http://111.230.98.67:10736/D%3A/SROweb/imgs/lib/002.jpg" class="artifact-image">
+                    <h3 class="artifact-title">第一次人口普查</h3>
+                </div>
+                <div class="artifact-card">
+                    <img src="http://111.230.98.67:10736/D%3A/SROweb/imgs/lib/003.jpg" class="artifact-image">
+                    <h3 class="artifact-title">第二次人口普查（以后都是在线统计）</h3>
+                </div>
+                <div class="artifact-card">
+                    <img src="http://111.230.98.67:10736/D%3A/SROweb/imgs/lib/004.jpg" class="artifact-image">
+                    <h3 class="artifact-title">《SRO大宪章》草稿，帝国法制的开端</h3>
+                </div>
+                <div class="artifact-card">
+                    <img src="http://111.230.98.67:10736/D%3A/SROweb/imgs/lib/005.jpg" class="artifact-image">
+                    <h3 class="artifact-title">元首注册QQ后发的第一条动态</h3>
+                </div>
+                <div class="artifact-card">
+                    <img src="http://111.230.98.67:10736/D%3A/SROweb/imgs/lib/006.jpg" class="artifact-image">
+                    <h3 class="artifact-title">关于官网筹建问题的大讨论</h3>
+                </div>
+                <div class="artifact-card">
+                    <img src="http://111.230.98.67:10736/D%3A/SROweb/imgs/lib/007.jpg" class="artifact-image">
+                    <h3 class="artifact-title">初代官网（2023.08.25）</h3>
+                </div>
+                <div class="artifact-card">
+                    <img src="http://111.230.98.67:10736/D%3A/SROweb/imgs/lib/008.jpg" class="artifact-image">
+                    <h3 class="artifact-title">过渡版官网</h3>
+                </div>
+                <div class="artifact-card">
+                    <img src="http://111.230.98.67:10736/D%3A/SROweb/imgs/lib/009.jpg" class="artifact-image">
+                    <h3 class="artifact-title">元首玩雪</h3>
+                </div>
+                <div class="artifact-card">
+                    <img src="http://111.230.98.67:10736/D%3A/SROweb/imgs/lib/010.jpg" class="artifact-image">
+                    <h3 class="artifact-title">SRO服务器最不极端的建筑</h3>
+                </div>
+                <div class="artifact-card">
+                    <img src="http://111.230.98.67:10736/D%3A/SROweb/imgs/lib/011.jpg" class="artifact-image">
+                    <h3 class="artifact-title">天才摄影师</h3>
+                </div>
+                <div class="artifact-card">
+                    <img src="http://111.230.98.67:10736/D%3A/SROweb/imgs/lib/012.jpg" class="artifact-image">
+                    <h3 class="artifact-title">元首识破美人计</h3>
+                </div>
+                <div class="artifact-card">
+                    <img src="http://111.230.98.67:10736/D%3A/SROweb/imgs/lib/013.jpg" class="artifact-image">
+                    <h3 class="artifact-title">SRO第二帝国VS大英帝国</h3>
+                </div>
+                <div class="artifact-card">
+                    <img src="http://111.230.98.67:10736/D%3A/SROweb/imgs/lib/014.jpg" class="artifact-image">
+                    <h3 class="artifact-title">元首作画纪念猪神</h3>
+                </div>
+                <div class="artifact-card">
+                    <img src="http://111.230.98.67:10736/D%3A/SROweb/imgs/lib/015.jpg" class="artifact-image">
+                    <h3 class="artifact-title">SRO特色健康码</h3>
+                </div>
+                <div class="artifact-card">
+                    <img src="http://111.230.98.67:10736/D%3A/SROweb/imgs/lib/016.jpg" class="artifact-image">
+                    <h3 class="artifact-title">语文课本上的虎式坦克</h3>
+                </div>
+                <div class="artifact-card">
+                    <img src="http://111.230.98.67:10736/D%3A/SROweb/imgs/lib/017.jpg" class="artifact-image">
+                    <h3 class="artifact-title">希尔行动</h3>
+                </div>
+                <div class="artifact-card">
+                    <img src="http://111.230.98.67:10736/D%3A/SROweb/imgs/lib/018.jpg" class="artifact-image">
+                    <h3 class="artifact-title">向东明一中进军</h3>
+                </div>
+                <div class="artifact-card">
+                    <img src="http://111.230.98.67:10736/D%3A/SROweb/imgs/lib/019.jpg" class="artifact-image">
+                    <h3 class="artifact-title">元首怒骂孔老二</h3>
+                </div>
+                <div class="artifact-card">
+                    <img src="http://111.230.98.67:10736/D%3A/SROweb/imgs/lib/020.jpg" class="artifact-image">
+                    <h3 class="artifact-title">名言</h3>
+                </div>
+                <div class="artifact-card">
+                    <img src="http://111.230.98.67:10736/D%3A/SROweb/imgs/lib/021.jpg" class="artifact-image">
+                    <h3 class="artifact-title">元首手机被格式化，SRO失去大量史料</h3>
+                </div>
+                <div class="artifact-card">
+                    <img src="http://111.230.98.67:10736/D%3A/SROweb/imgs/lib/022.jpg" class="artifact-image">
+                    <h3 class="artifact-title">SRO服务器</h3>
+                </div>
+                <div class="artifact-card">
+                    <img src="http://111.230.98.67:10736/D%3A/SROweb/imgs/lib/023.jpg" class="artifact-image">
+                    <h3 class="artifact-title">SRO入驻清风服务器</h3>
+                </div>
+                
+                
+            </div>
+        </div>
+
+        <div class="contact-info">
+            <p>SRO 版权所有</p>
+            <p>联系我们</p>
+            <p>QQ群 : 1032407123</p>
+            <p>邮箱 : sroniko@outlook.com</p>
+        </div>
+    </div>
+</body>
+</html>
