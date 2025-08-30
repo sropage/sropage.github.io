@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>鸣鸾殿 - SRO 官方网站</title>
+    <link rel="stylesheet" href="../../common.css">
+    <style>
+        .music-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+        }
+
+        .music-title {
+            font-size: 2em;
+            color: #2f81f7;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #30363d;
+            padding-bottom: 15px;
+        }
+
+        .playlist {
+            margin-bottom: 30px;
+        }
+
+        .song-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #30363d;
+            transition: background 0.2s;
+            cursor: pointer;
+        }
+
+        .song-item:hover {
+            background: #21262d;
+        }
+
+        .song-item:last-child {
+            border-bottom: none;
+        }
+
+        .song-info {
+            flex-grow: 1;
+            color: #e6edf3;
+            font-size: 1.1em;
+        }
+
+        .play-btn {
+            background: #238636;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .song-item.playing .play-btn {
+            background: #da3633;
+        }
+
+        .play-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .song-item.playing .play-btn:hover {
+            background: #f85149;
+        }
+
+        /* 播放控件 */
+        .player-controls {
+            background: #0d1117;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #30363d;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .player-controls::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #2f81f7, #3fb950);
+            animation: spectrum 3s infinite linear;
+        }
+
+        @keyframes spectrum {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: #30363d;
+            border-radius: 2px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #2f81f7, #3fb950);
+            width: 0%;
+            border-radius: 2px;
+            transition: width 0.1s;
+        }
+
+        .time-display {
+            display: flex;
+            justify-content: space-between;
+            color: #7d8590;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+        .control-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .control-btn {
+            background: none;
+            border: none;
+            color: #e6edf3;
+            font-size: 1.5em;
+            cursor: pointer;
+            padding: 10px;
+            transition: all 0.2s;
+        }
+
+        .control-btn:hover {
+            color: #2f81f7;
+            transform: scale(1.2);
+        }
+
+        .main-play {
+            font-size: 2em;
+            color: #3fb950;
+        }
+
+        .main-play:hover {
+            color: #2ea043;
+        }
+
+        .now-playing {
+            color: #e6edf3;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <button class="nav-button" onclick="location.href='../../index.html'">首页</button>
+        <div class="header-title">SRO 官方网站</div>
+    </div>
+
+    <div id="body">
+        <div class="music-container">
+            <h1 class="music-title">周杰伦专辑</h1>
+
+            <div class="playlist">
+                <div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 简单爱.mp3">
+    <div class="song-info">简单爱</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 逆鳞.mp3">
+    <div class="song-info">逆鳞</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 _ Terdsak Janpan - Opening.mp3">
+    <div class="song-info">Opening</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 小雨写立可白Ⅰ.mp3">
+    <div class="song-info">小雨写立可白Ⅰ</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 _ 袁咏琳 - 傻笑.mp3">
+    <div class="song-info">傻笑</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 _ 杨瑞代 - 我要夏天.mp3">
+    <div class="song-info">我要夏天</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 说好的幸福呢.mp3">
+    <div class="song-info">说好的幸福呢</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 蒲公英的约定.mp3">
+    <div class="song-info">蒲公英的约定</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 周大侠.mp3">
+    <div class="song-info">周大侠</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 献世 (Live).mp3">
+    <div class="song-info">献世 (Live)</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 反方向的钟.mp3">
+    <div class="song-info">反方向的钟</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 一口气全念对.mp3">
+    <div class="song-info">一口气全念对</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 跨时代.mp3">
+    <div class="song-info">跨时代</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 公公偏头痛.mp3">
+    <div class="song-info">公公偏头痛</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 乱舞春秋.mp3">
+    <div class="song-info">乱舞春秋</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 不爱我就拉倒.mp3">
+    <div class="song-info">不爱我就拉倒</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 _ Terdsak Janpan - 脚踏车.mp3">
+    <div class="song-info">脚踏车</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - Now You See Me.mp3">
+    <div class="song-info">Now You See Me</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 _ 林迈可 - 四面楚歌.mp3">
+    <div class="song-info">四面楚歌</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 _ Terdsak Janpan - Flash Back.mp3">
+    <div class="song-info">Flash Back</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 秘密花园.mp3">
+    <div class="song-info">秘密花园</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 阳明山.mp3">
+    <div class="song-info">阳明山</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 窃爱.mp3">
+    <div class="song-info">窃爱</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 蓝色风暴.mp3">
+    <div class="song-info">蓝色风暴</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 _ Terdsak Janpan - Ending.mp3">
+    <div class="song-info">Ending</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 斗牛.mp3">
+    <div class="song-info">斗牛</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 大笨钟.mp3">
+    <div class="song-info">大笨钟</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 _ 杨瑞代 - 爱的飞行日记.mp3">
+    <div class="song-info">爱的飞行日记</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 外婆.mp3">
+    <div class="song-info">外婆</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 琴伤.mp3">
+    <div class="song-info">琴伤</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 暗号.mp3">
+    <div class="song-info">暗号</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 发如雪.mp3">
+    <div class="song-info">发如雪</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 蜗牛 (Live).mp3">
+    <div class="song-info">蜗牛 (Live)</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 安静.mp3">
+    <div class="song-info">安静</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 说了再见.mp3">
+    <div class="song-info">说了再见</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 给我一首歌的时间.mp3">
+    <div class="song-info">给我一首歌的时间</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 我不配.mp3">
+    <div class="song-info">我不配</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 无双.mp3">
+    <div class="song-info">无双</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 _ Terdsak Janpan - 父与子.mp3">
+    <div class="song-info">父与子</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 园游会.mp3">
+    <div class="song-info">园游会</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 听见下雨的声音.mp3">
+    <div class="song-info">听见下雨的声音</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 听妈妈的话.mp3">
+    <div class="song-info">听妈妈的话</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 哪里都是你.mp3">
+    <div class="song-info">哪里都是你</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 超跑女神.mp3">
+    <div class="song-info">超跑女神</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 火车叨位去.mp3">
+    <div class="song-info">火车叨位去</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 彩虹.mp3">
+    <div class="song-info">彩虹</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 麦芽糖.mp3">
+    <div class="song-info">麦芽糖</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 鞋子特大号.mp3">
+    <div class="song-info">鞋子特大号</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 迷魂曲.mp3">
+    <div class="song-info">迷魂曲</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 红模仿.mp3">
+    <div class="song-info">红模仿</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 将军.mp3">
+    <div class="song-info">将军</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 稻香.mp3">
+    <div class="song-info">稻香</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 菊花台.mp3">
+    <div class="song-info">菊花台</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 世界未末日.mp3">
+    <div class="song-info">世界未末日</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 天涯过客.mp3">
+    <div class="song-info">天涯过客</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 阳光宅男.mp3">
+    <div class="song-info">阳光宅男</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 四季列车.mp3">
+    <div class="song-info">四季列车</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 半岛铁盒.mp3">
+    <div class="song-info">半岛铁盒</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - First Kiss.mp3">
+    <div class="song-info">First Kiss</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 止战之殇.mp3">
+    <div class="song-info">止战之殇</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 娘子.mp3">
+    <div class="song-info">娘子</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 倒影.mp3">
+    <div class="song-info">倒影</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 错过的烟火.mp3">
+    <div class="song-info">错过的烟火</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 你比从前快乐 (Live).mp3">
+    <div class="song-info">你比从前快乐 (Live)</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 扯.mp3">
+    <div class="song-info">扯</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 嘻哈空姐.mp3">
+    <div class="song-info">嘻哈空姐</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 白色风车.mp3">
+    <div class="song-info">白色风车</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 惊叹号.mp3">
+    <div class="song-info">惊叹号</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 东风破.mp3">
+    <div class="song-info">东风破</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 退后.mp3">
+    <div class="song-info">退后</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 她的睫毛.mp3">
+    <div class="song-info">她的睫毛</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 晴天.mp3">
+    <div class="song-info">晴天</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - Mine Mine.mp3">
+    <div class="song-info">Mine Mine</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 飘移.mp3">
+    <div class="song-info">飘移</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 黑色幽默.mp3">
+    <div class="song-info">黑色幽默</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 红尘客栈.mp3">
+    <div class="song-info">红尘客栈</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 算什么男人.mp3">
+    <div class="song-info">算什么男人</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 开不了口.mp3">
+    <div class="song-info">开不了口</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 爱情废柴.mp3">
+    <div class="song-info">爱情废柴</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 不能说的秘密.mp3">
+    <div class="song-info">不能说的秘密</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 轨迹.mp3">
+    <div class="song-info">轨迹</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 我落泪情绪零碎.mp3">
+    <div class="song-info">我落泪情绪零碎</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 还在流浪.mp3">
+    <div class="song-info">还在流浪</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 本草纲目.mp3">
+    <div class="song-info">本草纲目</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 时光机.mp3">
+    <div class="song-info">时光机</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 粉色海洋.mp3">
+    <div class="song-info">粉色海洋</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 夜曲.mp3">
+    <div class="song-info">夜曲</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 同一种调调.mp3">
+    <div class="song-info">同一种调调</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 琴房.mp3">
+    <div class="song-info">琴房</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 七里香.mp3">
+    <div class="song-info">七里香</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 爱你没差.mp3">
+    <div class="song-info">爱你没差</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 心雨.mp3">
+    <div class="song-info">心雨</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 烟花易冷.mp3">
+    <div class="song-info">烟花易冷</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 龙战骑士.mp3">
+    <div class="song-info">龙战骑士</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - Secret (慢板).mp3">
+    <div class="song-info">Secret (慢板)</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 回到过去.mp3">
+    <div class="song-info">回到过去</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 困兽之斗.mp3">
+    <div class="song-info">困兽之斗</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 星晴.mp3">
+    <div class="song-info">星晴</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 这所有的一切.mp3">
+    <div class="song-info">这所有的一切</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 分裂.mp3">
+    <div class="song-info">分裂</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 _ Terdsak Janpan - 阿郎与阿宝.mp3">
+    <div class="song-info">阿郎与阿宝</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 对不起.mp3">
+    <div class="song-info">对不起</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 听爸爸的话.mp3">
+    <div class="song-info">听爸爸的话</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 借口.mp3">
+    <div class="song-info">借口</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 说走就走.mp3">
+    <div class="song-info">说走就走</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 最伟大的作品.mp3">
+    <div class="song-info">最伟大的作品</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 我是如此相信.mp3">
+    <div class="song-info">我是如此相信</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 黄金甲.mp3">
+    <div class="song-info">黄金甲</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 米兰的小铁匠.mp3">
+    <div class="song-info">米兰的小铁匠</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 枫.mp3">
+    <div class="song-info">枫</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 _ 潘儿 - 夜的第七章.mp3">
+    <div class="song-info">夜的第七章</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 水手怕水.mp3">
+    <div class="song-info">水手怕水</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 早操.mp3">
+    <div class="song-info">早操</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 梦想启动.mp3">
+    <div class="song-info">梦想启动</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 _ 张惠妹 - 不该 (with aMEI).mp3">
+    <div class="song-info">不该 (with aMEI)</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 _ 袁咏琳 - 怎么了.mp3">
+    <div class="song-info">怎么了</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 乌克丽丽.mp3">
+    <div class="song-info">乌克丽丽</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 最后的战役.mp3">
+    <div class="song-info">最后的战役</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 小雨写立可白Ⅱ.mp3">
+    <div class="song-info">小雨写立可白Ⅱ</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 明明就.mp3">
+    <div class="song-info">明明就</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 浪漫手机.mp3">
+    <div class="song-info">浪漫手机</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 搁浅.mp3">
+    <div class="song-info">搁浅</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 威廉古堡.mp3">
+    <div class="song-info">威廉古堡</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 英雄_1.mp3">
+    <div class="song-info">英雄_1</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 好久不见.mp3">
+    <div class="song-info">好久不见</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 _ Lara梁心颐 _ 杨瑞代 - 比较大的大提琴.mp3">
+    <div class="song-info">比较大的大提琴</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 免费教学录影带.mp3">
+    <div class="song-info">免费教学录影带</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 双刀.mp3">
+    <div class="song-info">双刀</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 手写的从前.mp3">
+    <div class="song-info">手写的从前</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 三年二班.mp3">
+    <div class="song-info">三年二班</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 最长的电影.mp3">
+    <div class="song-info">最长的电影</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 龙拳.mp3">
+    <div class="song-info">龙拳</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 牛仔很忙.mp3">
+    <div class="song-info">牛仔很忙</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 红颜如霜.mp3">
+    <div class="song-info">红颜如霜</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 你好吗.mp3">
+    <div class="song-info">你好吗</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 双截棍.mp3">
+    <div class="song-info">双截棍</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 上海一九四三.mp3">
+    <div class="song-info">上海一九四三</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 床边故事.mp3">
+    <div class="song-info">床边故事</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - Mojito.mp3">
+    <div class="song-info">Mojito</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 路小雨.mp3">
+    <div class="song-info">路小雨</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 霍元甲.mp3">
+    <div class="song-info">霍元甲</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 皮影戏.mp3">
+    <div class="song-info">皮影戏</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 _ 詹宇豪 - 斗琴.mp3">
+    <div class="song-info">斗琴</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 以父之名.mp3">
+    <div class="song-info">以父之名</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 忍者.mp3">
+    <div class="song-info">忍者</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 湘伦小雨四手联弹.mp3">
+    <div class="song-info">湘伦小雨四手联弹</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 迷迭香.mp3">
+    <div class="song-info">迷迭香</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 说好不哭 (with 五月天阿信).mp3">
+    <div class="song-info">说好不哭 (with 五月天阿信)</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 兰亭序.mp3">
+    <div class="song-info">兰亭序</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 我的地盘.mp3">
+    <div class="song-info">我的地盘</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 _ 费玉清 - 千里之外.mp3">
+    <div class="song-info">千里之外</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 魔术先生.mp3">
+    <div class="song-info">魔术先生</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 爷爷泡的茶.mp3">
+    <div class="song-info">爷爷泡的茶</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - Secret (加长快板).mp3">
+    <div class="song-info">Secret (加长快板)</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 疗伤烧肉粽.mp3">
+    <div class="song-info">疗伤烧肉粽</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 等你下课 (with 杨瑞代).mp3">
+    <div class="song-info">等你下课 (with 杨瑞代)</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 _ Lara梁心颐 - 蛇舞.mp3">
+    <div class="song-info">蛇舞</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 _ Terdsak Janpan - Angel.mp3">
+    <div class="song-info">Angel</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - Intro.mp3">
+    <div class="song-info">Intro</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 _ Lara梁心颐 - 珊瑚海.mp3">
+    <div class="song-info">珊瑚海</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 土耳其冰淇淋.mp3">
+    <div class="song-info">土耳其冰淇淋</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 青花瓷.mp3">
+    <div class="song-info">青花瓷</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 _ Terdsak Janpan - 与父共舞.mp3">
+    <div class="song-info">与父共舞</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 告白气球.mp3">
+    <div class="song-info">告白气球</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 雨下一整晚.mp3">
+    <div class="song-info">雨下一整晚</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 龙卷风.mp3">
+    <div class="song-info">龙卷风</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 一路向北.mp3">
+    <div class="song-info">一路向北</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 你听得到.mp3">
+    <div class="song-info">你听得到</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 花海.mp3">
+    <div class="song-info">花海</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 梯田.mp3">
+    <div class="song-info">梯田</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 前世情人.mp3">
+    <div class="song-info">前世情人</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 美人鱼.mp3">
+    <div class="song-info">美人鱼</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 手语.mp3">
+    <div class="song-info">手语</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 爸，我回来了.mp3">
+    <div class="song-info">爸，我回来了</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 _ 杨瑞代 - 流浪诗人.mp3">
+    <div class="song-info">流浪诗人</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 半兽人.mp3">
+    <div class="song-info">半兽人</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 印第安老斑鸠.mp3">
+    <div class="song-info">印第安老斑鸠</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 淡水海边.mp3">
+    <div class="song-info">淡水海边</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 爱情悬崖.mp3">
+    <div class="song-info">爱情悬崖</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 爱在西元前.mp3">
+    <div class="song-info">爱在西元前</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 断了的弦.mp3">
+    <div class="song-info">断了的弦</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 自导自演.mp3">
+    <div class="song-info">自导自演</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 公主病.mp3">
+    <div class="song-info">公主病</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 甜甜的.mp3">
+    <div class="song-info">甜甜的</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 伊斯坦堡.mp3">
+    <div class="song-info">伊斯坦堡</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 乔克叔叔.mp3">
+    <div class="song-info">乔克叔叔</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 可爱女人.mp3">
+    <div class="song-info">可爱女人</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 懦夫.mp3">
+    <div class="song-info">懦夫</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 一点点.mp3">
+    <div class="song-info">一点点</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 完美主义.mp3">
+    <div class="song-info">完美主义</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 英雄.mp3">
+    <div class="song-info">英雄</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 黑色毛衣.mp3">
+    <div class="song-info">黑色毛衣</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - 超人不会飞.mp3">
+    <div class="song-info">超人不会飞</div>
+    <button class="play-btn">▶</button>
+</div>
+<div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/jay/周杰伦 - The Swan.mp3">
+    <div class="song-info">The Swan</div>
+    <button class="play-btn">▶</button>
+</div>
+
+            </div>
+
+            <!-- 播放控件 -->
+            <div class="player-controls">
+                <div class="now-playing" id="nowPlaying">未播放</div>
+                <div class="progress-bar" id="progressBar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="time-display">
+                    <span id="currentTime">0:00</span>
+                    <span id="totalTime">0:00</span>
+                </div>
+                <div class="control-buttons">
+                    <button class="control-btn" id="prevBtn">⏮</button>
+                    <button class="control-btn main-play" id="playPauseBtn">▶</button>
+                    <button class="control-btn" id="nextBtn">⏭</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-info">
+            <p>SRO 版权所有</p>
+            <p>联系我们</p>
+            <p>QQ群 : 1032407123</p>
+            <p>邮箱 : sroniko@outlook.com</p>
+        </div>
+    </div>
+
+    <!-- 隐藏的音频元素 -->
+    <audio id="audioPlayer"></audio>
+
+    <script>
+        // 获取DOM元素
+        const audioPlayer = document.getElementById('audioPlayer');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const progressBar = document.getElementById('progressBar');
+        const progressFill = document.getElementById('progressFill');
+        const currentTimeEl = document.getElementById('currentTime');
+        const totalTimeEl = document.getElementById('totalTime');
+        const nowPlayingEl = document.getElementById('nowPlaying');
+        const songItems = document.querySelectorAll('.song-item');
+        const playButtons = document.querySelectorAll('.play-btn');
+
+        // 当前播放状态
+        let currentSongIndex = -1;
+        let isPlaying = false;
+
+        // 格式化时间
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+
+        // 更新进度条
+        function updateProgress() {
+            const { currentTime, duration } = audioPlayer;
+            const progressPercent = (currentTime / duration) * 100;
+            progressFill.style.width = `${progressPercent}%`;
+            currentTimeEl.textContent = formatTime(currentTime);
+            
+            if (duration) {
+                totalTimeEl.textContent = formatTime(duration);
+            }
+        }
+
+        // 设置进度条
+        function setProgress(e) {
+            const width = this.clientWidth;
+            const clickX = e.offsetX;
+            const duration = audioPlayer.duration;
+            audioPlayer.currentTime = (clickX / width) * duration;
+        }
+
+        // 播放歌曲
+        function playSong(index) {
+            // 重置所有歌曲状态
+            songItems.forEach(item => item.classList.remove('playing'));
+            playButtons.forEach(btn => btn.textContent = '▶');
+            
+            // 设置当前歌曲
+            currentSongIndex = index;
+            const songItem = songItems[index];
+            const songSrc = songItem.getAttribute('data-src');
+            const songName = songItem.querySelector('.song-info').textContent;
+            
+            // 更新音频源
+            audioPlayer.src = songSrc;
+            audioPlayer.play();
+            
+            // 更新UI
+            songItem.classList.add('playing');
+            songItem.querySelector('.play-btn').textContent = '⏸';
+            nowPlayingEl.textContent = `正在播放: ${songName}`;
+            playPauseBtn.textContent = '⏸';
+            isPlaying = true;
+        }
+
+        // 暂停歌曲
+        function pauseSong() {
+            audioPlayer.pause();
+            if (currentSongIndex >= 0) {
+                songItems[currentSongIndex].querySelector('.play-btn').textContent = '▶';
+            }
+            playPauseBtn.textContent = '▶';
+            isPlaying = false;
+        }
+
+        // 播放/暂停切换
+        function togglePlayPause() {
+            if (currentSongIndex < 0) {
+                // 如果没有选中的歌曲，播放第一首
+                if (songItems.length > 0) {
+                    playSong(0);
+                }
+            } else if (isPlaying) {
+                pauseSong();
+            } else {
+                audioPlayer.play();
+                songItems[currentSongIndex].querySelector('.play-btn').textContent = '⏸';
+                playPauseBtn.textContent = '⏸';
+                isPlaying = true;
+            }
+        }
+
+        // 播放下一首
+        function playNext() {
+            if (songItems.length === 0) return;
+            
+            let nextIndex = currentSongIndex + 1;
+            if (nextIndex >= songItems.length) {
+                nextIndex = 0; // 循环到第一首
+            }
+            playSong(nextIndex);
+        }
+
+        // 播放上一首
+        function playPrev() {
+            if (songItems.length === 0) return;
+            
+            let prevIndex = currentSongIndex - 1;
+            if (prevIndex < 0) {
+                prevIndex = songItems.length - 1; // 循环到最后一首
+            }
+            playSong(prevIndex);
+        }
+
+        // 事件监听器
+        audioPlayer.addEventListener('timeupdate', updateProgress);
+        audioPlayer.addEventListener('ended', playNext);
+        progressBar.addEventListener('click', setProgress);
+        playPauseBtn.addEventListener('click', togglePlayPause);
+        nextBtn.addEventListener('click', playNext);
+        prevBtn.addEventListener('click', playPrev);
+
+        // 为每首歌添加点击事件
+        songItems.forEach((item, index) => {
+            item.addEventListener('click', (e) => {
+                // 防止点击播放按钮时触发两次
+                if (e.target !== item && e.target !== item.querySelector('.song-info')) return;
+                
+                if (currentSongIndex === index && isPlaying) {
+                    pauseSong();
+                } else {
+                    playSong(index);
+                }
+            });
+            
+            // 播放按钮事件
+            const playBtn = item.querySelector('.play-btn');
+            playBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); // 阻止冒泡到歌曲项
+                
+                if (currentSongIndex === index && isPlaying) {
+                    pauseSong();
+                } else {
+                    playSong(index);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

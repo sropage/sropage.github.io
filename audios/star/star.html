@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>鸣鸾殿 - SRO 官方网站</title>
+    <link rel="stylesheet" href="../../common.css">
+    <style>
+        .music-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+        }
+
+        .music-title {
+            font-size: 2em;
+            color: #2f81f7;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #30363d;
+            padding-bottom: 15px;
+        }
+
+        .playlist {
+            margin-bottom: 30px;
+        }
+
+        .song-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #30363d;
+            transition: background 0.2s;
+            cursor: pointer;
+        }
+
+        .song-item:hover {
+            background: #21262d;
+        }
+
+        .song-item:last-child {
+            border-bottom: none;
+        }
+
+        .song-info {
+            flex-grow: 1;
+            color: #e6edf3;
+            font-size: 1.1em;
+        }
+
+        .play-btn {
+            background: #238636;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .song-item.playing .play-btn {
+            background: #da3633;
+        }
+
+        .play-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .song-item.playing .play-btn:hover {
+            background: #f85149;
+        }
+
+        /* 播放控件 */
+        .player-controls {
+            background: #0d1117;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #30363d;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .player-controls::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #2f81f7, #3fb950);
+            animation: spectrum 3s infinite linear;
+        }
+
+        @keyframes spectrum {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: #30363d;
+            border-radius: 2px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #2f81f7, #3fb950);
+            width: 0%;
+            border-radius: 2px;
+            transition: width 0.1s;
+        }
+
+        .time-display {
+            display: flex;
+            justify-content: space-between;
+            color: #7d8590;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+        .control-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .control-btn {
+            background: none;
+            border: none;
+            color: #e6edf3;
+            font-size: 1.5em;
+            cursor: pointer;
+            padding: 10px;
+            transition: all 0.2s;
+        }
+
+        .control-btn:hover {
+            color: #2f81f7;
+            transform: scale(1.2);
+        }
+
+        .main-play {
+            font-size: 2em;
+            color: #3fb950;
+        }
+
+        .main-play:hover {
+            color: #2ea043;
+        }
+
+        .now-playing {
+            color: #e6edf3;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <button class="nav-button" onclick="location.href='../../index.html'">首页</button>
+        <div class="header-title">SRO 官方网站</div>
+    </div>
+
+    <div id="body">
+        <div class="music-container">
+            <h1 class="music-title">SRO公共收藏夹</h1>
+
+            <div class="playlist">
+                <!-- <div class="song-item" data-src="链接">
+                    <div class="song-info">歌名</div>
+                    <button class="play-btn">▶</button>
+                </div> -->
+                <div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/star/%E5%A4%8F%E5%AE%9F.mp3">
+                    <div class="song-info">夏実</div>
+                    <button class="play-btn">▶</button>
+                </div>
+                <div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/star/%E6%B5%B4%E5%AE%A4.mp3">
+                    <div class="song-info">浴室</div>
+                    <button class="play-btn">▶</button>
+                </div>
+                <div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/star/%E5%91%A8%E6%9D%B0%E4%BC%A6%20-%20%E4%BD%A0%E5%90%AC%E5%BE%97%E5%88%B0.mp3">
+                    <div class="song-info">你听得到</div>
+                    <button class="play-btn">▶</button>
+                </div>
+                <div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/star/%E5%91%A8%E6%9D%B0%E4%BC%A6%20-%20%E8%8A%B1%E6%B5%B7.mp3">
+                    <div class="song-info">花海</div>
+                    <button class="play-btn">▶</button>
+                </div>
+                <div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/star/%E5%91%A8%E6%9D%B0%E4%BC%A6%20-%20%E7%88%B1%E5%9C%A8%E8%A5%BF%E5%85%83%E5%89%8D.mp3">
+                    <div class="song-info">爱在西元前</div>
+                    <button class="play-btn">▶</button>
+                </div>
+                <div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/star/%E8%99%9E%E5%85%AE%E5%8F%B9.mp3">
+                    <div class="song-info">虞兮叹</div>
+                    <button class="play-btn">▶</button>
+                </div>
+                <div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/star/%E5%86%8D%E8%A7%81%E8%8E%AB%E5%A6%AE%E5%8D%A1.mp3">
+                    <div class="song-info">再见莫妮卡</div>
+                    <button class="play-btn">▶</button>
+                </div>
+                <div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/star/%E5%A4%9C%E8%88%AA%E6%98%9F.mp3">
+                    <div class="song-info">夜航星</div>
+                    <button class="play-btn">▶</button>
+                </div>
+                <div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/star/%E5%A0%95.mp3">
+                    <div class="song-info">堕</div>
+                    <button class="play-btn">▶</button>
+                </div>
+                <div class="song-item" data-src="http://111.230.98.67:10736/D%3A/SROweb/audios/star/%E5%8F%AA%E5%9B%A0%E4%BD%A0%E5%A4%AA%E7%BE%8E.mp3">
+                    <div class="song-info">只因你太美</div>
+                    <button class="play-btn">▶</button>
+                </div>
+            </div>
+
+            <!-- 播放控件 -->
+            <div class="player-controls">
+                <div class="now-playing" id="nowPlaying">未播放</div>
+                <div class="progress-bar" id="progressBar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="time-display">
+                    <span id="currentTime">0:00</span>
+                    <span id="totalTime">0:00</span>
+                </div>
+                <div class="control-buttons">
+                    <button class="control-btn" id="prevBtn">⏮</button>
+                    <button class="control-btn main-play" id="playPauseBtn">▶</button>
+                    <button class="control-btn" id="nextBtn">⏭</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-info">
+            <p>SRO 版权所有</p>
+            <p>联系我们</p>
+            <p>QQ群 : 1032407123</p>
+            <p>邮箱 : sroniko@outlook.com</p>
+        </div>
+    </div>
+
+    <!-- 隐藏的音频元素 -->
+    <audio id="audioPlayer"></audio>
+
+    <script>
+        // 获取DOM元素
+        const audioPlayer = document.getElementById('audioPlayer');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const progressBar = document.getElementById('progressBar');
+        const progressFill = document.getElementById('progressFill');
+        const currentTimeEl = document.getElementById('currentTime');
+        const totalTimeEl = document.getElementById('totalTime');
+        const nowPlayingEl = document.getElementById('nowPlaying');
+        const songItems = document.querySelectorAll('.song-item');
+        const playButtons = document.querySelectorAll('.play-btn');
+
+        // 当前播放状态
+        let currentSongIndex = -1;
+        let isPlaying = false;
+
+        // 格式化时间
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+
+        // 更新进度条
+        function updateProgress() {
+            const { currentTime, duration } = audioPlayer;
+            const progressPercent = (currentTime / duration) * 100;
+            progressFill.style.width = `${progressPercent}%`;
+            currentTimeEl.textContent = formatTime(currentTime);
+            
+            if (duration) {
+                totalTimeEl.textContent = formatTime(duration);
+            }
+        }
+
+        // 设置进度条
+        function setProgress(e) {
+            const width = this.clientWidth;
+            const clickX = e.offsetX;
+            const duration = audioPlayer.duration;
+            audioPlayer.currentTime = (clickX / width) * duration;
+        }
+
+        // 播放歌曲
+        function playSong(index) {
+            // 重置所有歌曲状态
+            songItems.forEach(item => item.classList.remove('playing'));
+            playButtons.forEach(btn => btn.textContent = '▶');
+            
+            // 设置当前歌曲
+            currentSongIndex = index;
+            const songItem = songItems[index];
+            const songSrc = songItem.getAttribute('data-src');
+            const songName = songItem.querySelector('.song-info').textContent;
+            
+            // 更新音频源
+            audioPlayer.src = songSrc;
+            audioPlayer.play();
+            
+            // 更新UI
+            songItem.classList.add('playing');
+            songItem.querySelector('.play-btn').textContent = '⏸';
+            nowPlayingEl.textContent = `正在播放: ${songName}`;
+            playPauseBtn.textContent = '⏸';
+            isPlaying = true;
+        }
+
+        // 暂停歌曲
+        function pauseSong() {
+            audioPlayer.pause();
+            if (currentSongIndex >= 0) {
+                songItems[currentSongIndex].querySelector('.play-btn').textContent = '▶';
+            }
+            playPauseBtn.textContent = '▶';
+            isPlaying = false;
+        }
+
+        // 播放/暂停切换
+        function togglePlayPause() {
+            if (currentSongIndex < 0) {
+                // 如果没有选中的歌曲，播放第一首
+                if (songItems.length > 0) {
+                    playSong(0);
+                }
+            } else if (isPlaying) {
+                pauseSong();
+            } else {
+                audioPlayer.play();
+                songItems[currentSongIndex].querySelector('.play-btn').textContent = '⏸';
+                playPauseBtn.textContent = '⏸';
+                isPlaying = true;
+            }
+        }
+
+        // 播放下一首
+        function playNext() {
+            if (songItems.length === 0) return;
+            
+            let nextIndex = currentSongIndex + 1;
+            if (nextIndex >= songItems.length) {
+                nextIndex = 0; // 循环到第一首
+            }
+            playSong(nextIndex);
+        }
+
+        // 播放上一首
+        function playPrev() {
+            if (songItems.length === 0) return;
+            
+            let prevIndex = currentSongIndex - 1;
+            if (prevIndex < 0) {
+                prevIndex = songItems.length - 1; // 循环到最后一首
+            }
+            playSong(prevIndex);
+        }
+
+        // 事件监听器
+        audioPlayer.addEventListener('timeupdate', updateProgress);
+        audioPlayer.addEventListener('ended', playNext);
+        progressBar.addEventListener('click', setProgress);
+        playPauseBtn.addEventListener('click', togglePlayPause);
+        nextBtn.addEventListener('click', playNext);
+        prevBtn.addEventListener('click', playPrev);
+
+        // 为每首歌添加点击事件
+        songItems.forEach((item, index) => {
+            item.addEventListener('click', (e) => {
+                // 防止点击播放按钮时触发两次
+                if (e.target !== item && e.target !== item.querySelector('.song-info')) return;
+                
+                if (currentSongIndex === index && isPlaying) {
+                    pauseSong();
+                } else {
+                    playSong(index);
+                }
+            });
+            
+            // 播放按钮事件
+            const playBtn = item.querySelector('.play-btn');
+            playBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); // 阻止冒泡到歌曲项
+                
+                if (currentSongIndex === index && isPlaying) {
+                    pauseSong();
+                } else {
+                    playSong(index);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
