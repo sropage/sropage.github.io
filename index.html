@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正在跳转...</title>
+    <!-- 主要跳转方式：meta refresh -->
+    <meta http-equiv="refresh" content="0; url=http://111.230.98.67:10736/D%3A/SROweb/index.html">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            overflow: hidden;
+        }
+        
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 90%;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .loader {
+            width: 50px;
+            height: 50px;
+            margin: 20px auto;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 5px solid #fff;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        p {
+            margin: 1rem 0;
+            line-height: 1.6;
+        }
+        
+        .link {
+            margin-top: 1.5rem;
+            display: inline-block;
+            color: #fff;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .info {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+    </style>
+    <!-- JavaScript跳转作为备用 -->
+    <script>
+        window.onload = function() {
+            // 备用跳转方法
+            setTimeout(function() {
+                window.location.href = "http://111.230.98.67:10736/D%3A/SROweb/index.html";
+            }, 100);
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>正在为您跳转</h1>
+        <div class="loader"></div>
+        <p>您即将前往 <strong>SRO官方网站</strong></p>
+        <p>如果页面没有自动跳转，请点击下方链接</p>
+        <a href="http://111.230.98.67:10736/D%3A/SROweb/index.html" class="link">立即访问</a>
+        
+    </div>
+</body>
+</html>
